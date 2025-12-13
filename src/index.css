@@ -4,15 +4,16 @@
 
 @layer base {
   body {
-    @apply text-slate-900 bg-slate-50;
+    @apply text-slate-900 bg-background;
   }
 }
 
 /* Custom scrollbar for horizontal carousels */
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
+
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
