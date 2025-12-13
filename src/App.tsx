@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { Dashboard } from '@/pages/Dashboard';
 import { LinkAccount } from '@/pages/LinkAccount';
 import { Rewards } from '@/pages/Rewards';
-import { Profile } from '@/pages/Profile';
+import { HistoryPage } from '@/pages/History';
 import { useUser } from '@/hooks/useUser';
 
 // Create a client
@@ -34,7 +34,7 @@ export default function App() {
                             <Route path="/" element={<Dashboard />} />
                             <Route path="/link" element={<LinkAccount />} />
                             <Route path="/rewards" element={<Rewards />} />
-                            <Route path="/profile" element={<Profile />} />
+                            <Route path="/history" element={<HistoryPage />} />
                         </Route>
                     </Routes>
                 </div>

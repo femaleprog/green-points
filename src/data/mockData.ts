@@ -63,6 +63,91 @@ export const MOCK_PRODUCTS: Product[] = [
     }
 ];
 
+export const PAST_PURCHASES = [
+    {
+        id: 'p1',
+        date: '2025-12-10',
+        storeName: 'Auchan',
+        totalAmount: 45.20,
+        items: [
+            {
+                id: 'i1',
+                name: 'Beef Burger Patties',
+                price: 8.50,
+                isVegan: false,
+                image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=800',
+                substitute: {
+                    name: 'Beyond Burger',
+                    pointsGain: 50,
+                    footprintSavings: '2.5kg CO2',
+                    price: 5.99
+                }
+            },
+            {
+                id: 'i2',
+                name: 'Cow Milk 1L',
+                price: 1.20,
+                isVegan: false,
+                image: 'https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&q=80&w=800',
+                substitute: {
+                    name: 'Oat Milk Barista',
+                    pointsGain: 25,
+                    footprintSavings: '0.8kg CO2',
+                    price: 2.50
+                }
+            },
+            {
+                id: 'i3',
+                name: 'Bananas',
+                price: 2.10,
+                isVegan: true,
+                image: 'https://images.unsplash.com/photo-1603833665858-e61d17a86224?auto=format&fit=crop&q=80&w=800'
+            },
+            {
+                id: 'i6',
+                name: 'Imported Lamb Chops',
+                price: 15.90,
+                isVegan: false,
+                image: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=800',
+                substitute: {
+                    name: 'Seitan Steaks',
+                    pointsGain: 150,
+                    footprintSavings: '12.5kg CO2',
+                    price: 12.50
+                }
+            }
+        ]
+    },
+    {
+        id: 'p2',
+        date: '2025-12-05',
+        storeName: 'Carrefour',
+        totalAmount: 22.15,
+        items: [
+            {
+                id: 'i4',
+                name: 'Chicken Breast',
+                price: 12.50,
+                isVegan: false,
+                image: 'https://images.unsplash.com/photo-1604503468506-a8da13d82791?auto=format&fit=crop&q=80&w=800',
+                substitute: {
+                    name: 'Vegan Chicken Pieces',
+                    pointsGain: 40,
+                    footprintSavings: '3.1kg CO2',
+                    price: 9.99
+                }
+            },
+            {
+                id: 'i5',
+                name: 'Rice',
+                price: 3.50,
+                isVegan: true,
+                image: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&q=80&w=800'
+            }
+        ]
+    }
+];
+
 export const MOCK_COMPANIES: CompanySpotlight[] = [
     {
         id: 'c1',
