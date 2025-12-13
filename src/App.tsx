@@ -6,6 +6,7 @@ import { Dashboard } from '@/pages/Dashboard';
 import { LinkAccount } from '@/pages/LinkAccount';
 import { Rewards } from '@/pages/Rewards';
 import { HistoryPage } from '@/pages/History';
+import { Profile } from '@/pages/Profile';
 import { useUser } from '@/hooks/useUser';
 
 // Create a client
@@ -35,6 +36,7 @@ export default function App() {
                             <Route path="/link" element={<LinkAccount />} />
                             <Route path="/rewards" element={<Rewards />} />
                             <Route path="/history" element={<HistoryPage />} />
+                            <Route path="/profile" element={<Profile />} />
                         </Route>
                     </Routes>
                 </div>

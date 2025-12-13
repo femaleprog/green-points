@@ -20,6 +20,9 @@ export const Header = ({ userPoints = 0 }: HeaderProps) => {
                     <button className="p-2 rounded-full hover:bg-slate-200 text-slate-500">
                         <Bell className="w-5 h-5" />
                     </button>
+                    <Link to="/profile" className="w-9 h-9 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 hover:bg-slate-200 transition-colors border border-slate-200">
+                        <User size={20} />
+                    </Link>
                 </div>
             </div>
         </header>
