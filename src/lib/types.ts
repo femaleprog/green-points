@@ -58,3 +58,26 @@ export interface Purchase {
     items: PurchaseItem[];
     totalPoints: number;
 }
+
+export interface Restaurant {
+    id: string;
+    name: string;
+    rating: number;
+    deliveryTime: string;
+    deliveryFee: string;
+    imageUrl: string;
+    tags: string[];
+    lat: number;
+    lng: number;
+}
+
+export interface GroceryStore {
+    id: string;
+    name: string;
+    image: string;
+    distance: string;
+    offers: string[];
+    lat: number;
+    lng: number;
+}
+
