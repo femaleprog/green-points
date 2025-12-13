@@ -203,3 +203,75 @@ export const AVAILABLE_STORES: Store[] = [
     { id: 'carrefour', name: 'Carrefour', isConnected: false, logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Carrefour_logo.svg/300px-Carrefour_logo.svg.png' },
     { id: 'monoprix', name: 'Monoprix', isConnected: false, logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Monoprix_2013_logo.svg' }
 ];
+
+export interface Recipe {
+    id: string;
+    name: string;
+    originalName: string;
+    description: string;
+    imageUrl: string;
+    carbonSavedKg: number;
+    animalsSaved: number;
+    pointsEarned: number;
+    ingredients: {
+        original: string[];
+        alternatives: { name: string; brand?: string }[];
+    };
+}
+
+export const MOCK_RECIPES: Recipe[] = [
+    {
+        id: 'r1',
+        name: 'Vegan Lemon Tart',
+        originalName: 'Lemon Tart',
+        description: 'A zesty, creamy delight without any eggs or dairy. 100% plant-based pleasure.',
+        imageUrl: 'https://images.unsplash.com/photo-1519915093-69a69d421731?auto=format&fit=crop&q=80&w=400',
+        carbonSavedKg: 2.5,
+        animalsSaved: 0.5,
+        pointsEarned: 45,
+        ingredients: {
+            original: ['Eggs', 'Butter', 'Heavy Cream'],
+            alternatives: [
+                { name: 'Agar Agar', brand: 'Nat-Ali' },
+                { name: 'Plant Butter', brand: 'Flora' },
+                { name: 'Coconut Cream', brand: 'Kara' }
+            ]
+        }
+    },
+    {
+        id: 'r2',
+        name: 'No-Bacon Tartiflette',
+        originalName: 'Tartiflette',
+        description: 'The french classic reinvented with smoked tofu and cashew cream.',
+        imageUrl: 'https://images.unsplash.com/photo-1647169493979-37059fb86a3d?auto=format&fit=crop&q=80&w=400',
+        carbonSavedKg: 5.2,
+        animalsSaved: 1.0,
+        pointsEarned: 80,
+        ingredients: {
+            original: ['Lardons', 'Reblochon', 'Crème Fraîche'],
+            alternatives: [
+                { name: 'Smoked Tofu', brand: 'Taifun' },
+                { name: 'Vegan Melting Cheese', brand: 'Violife' },
+                { name: 'Soy Cream', brand: 'Alpro' }
+            ]
+        }
+    },
+    {
+        id: 'r3',
+        name: 'Strawberry Cheesecake',
+        originalName: 'Cheesecake',
+        description: 'Creamy, dreamy, and totally dairy-free.',
+        imageUrl: 'https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&q=80&w=400',
+        carbonSavedKg: 3.8,
+        animalsSaved: 0.8,
+        pointsEarned: 60,
+        ingredients: {
+            original: ['Cream Cheese', 'Butter', 'Eggs'],
+            alternatives: [
+                { name: 'Vegan Cream Cheese', brand: 'Violife' },
+                { name: 'Margarine', brand: 'St Hubert' },
+                { name: 'Silken Tofu', brand: 'Clearspring' }
+            ]
+        }
+    }
+];

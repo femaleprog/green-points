@@ -8,13 +8,23 @@ export default {
         extend: {
             colors: {
                 brand: {
-                    50: '#f0fdf4',
-                    100: '#dcfce7',
-                    500: '#22c55e', // Green-500
-                    600: '#16a34a',
-                    700: '#15803d',
+                    50: '#FCEEF6', // Pink (User's 3rd color) - nicely contrasts with Green
+                    100: '#DFF5CF', // Light Green (User's 2nd color)
+                    200: '#cbebc5',
+                    300: '#a3d9a5',
+                    400: '#7cb575',
+                    500: '#4a8a45', // Mid-green interpolation
+                    600: '#184511', // Dark Green (User's 1st color) - PRIMARY ACTION
+                    700: '#13380e', // Darker for hover
+                    800: '#0e290a',
+                    900: '#051003',
                 },
-                background: '#f8fafc', // Slate-50
+                // Alias for clarity
+                moss: '#184511',
+                lime: '#DFF5CF',
+                rose: '#FCEEF6',
+
+                background: '#FCEEF6', // Setting the global background to the pink tone for a premium feel
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
