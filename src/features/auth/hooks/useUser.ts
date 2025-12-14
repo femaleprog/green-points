@@ -25,15 +25,21 @@ const MOCK_USER: UserProfile = {
 };
 
 // Simulate API call
-const fetchUser = async (): Promise<UserProfile> => {
-    // In real app: const docSnap = await getDoc(doc(db, 'users', auth.currentUser.uid));
+const fetchUser = async (): Promise<UserProfile | null> => {
+    // Check localStorage for persisted user
     const stored = localStorage.getItem('vp_user');
     if (stored) {
-        const parsed = JSON.parse(stored);
-        // Merge with MOCK_USER to ensure new fields (like persona) are present if missing
-        return { ...MOCK_USER, ...parsed, persona: parsed.persona || MOCK_USER.persona };
+        try {
+            const parsed = JSON.parse(stored);
+            // Merge with MOCK_USER structure to safely handle schema updates while preserving data
+            // But if stored is valid, use it. MOCK_USER is only for the "fresh login" state.
+            return { ...MOCK_USER, ...parsed };
+        } catch (e) {
+            console.error("Failed to parse user", e);
+            return null;
+        }
     }
-    return MOCK_USER;
+    return null; // Default to logged out
 };
 
 export const useUser = () => {
@@ -42,7 +48,31 @@ export const useUser = () => {
     const { data: user, isLoading } = useQuery({
         queryKey: ['user'],
         queryFn: fetchUser,
-        staleTime: Infinity // Keep it simple for MVP
+        staleTime: Infinity
+    });
+
+    const loginMutation = useMutation({
+        mutationFn: async () => {
+            // Simulate API delay
+            await new Promise(r => setTimeout(r, 800));
+            // Set MOCK_USER into storage
+            localStorage.setItem('vp_user', JSON.stringify(MOCK_USER));
+            return MOCK_USER;
+        },
+        onSuccess: (newUser) => {
+            queryClient.setQueryData(['user'], newUser);
+        }
+    });
+
+    const logoutMutation = useMutation({
+        mutationFn: async () => {
+            localStorage.removeItem('vp_user');
+            return null;
+        },
+        onSuccess: () => {
+            queryClient.setQueryData(['user'], null);
+            queryClient.removeQueries({ queryKey: ['user'] });
+        }
     });
 
     const linkStoreMutation = useMutation({
@@ -55,7 +85,7 @@ export const useUser = () => {
                 ...currentUser,
                 linkedStores: [...currentUser.linkedStores, storeId]
             };
-            localStorage.setItem('vp_user', JSON.stringify(updatedUser)); // Persist locally for demo
+            localStorage.setItem('vp_user', JSON.stringify(updatedUser));
             return updatedUser;
         },
         onSuccess: (newUser) => {
@@ -71,9 +101,11 @@ export const useUser = () => {
             if (storeId === 'auchan') newPurchases = await auchanAdapter.syncPurchases('user_123');
             if (storeId === 'carrefour') newPurchases = await carrefourAdapter.syncPurchases('user_123');
 
-            const pointsToAdd = newPurchases.reduce((acc, p) => acc + p.totalPoints, 0);
+            const pointsToAdd = newPurchases.reduce((acc: any, p: any) => acc + p.totalPoints, 0);
 
-            const currentUser = queryClient.getQueryData<UserProfile>(['user']) || MOCK_USER;
+            const currentUser = queryClient.getQueryData<UserProfile>(['user']);
+            if (!currentUser) throw new Error("No user");
+
             const updatedUser = {
                 ...currentUser,
                 points: currentUser.points + pointsToAdd
@@ -90,7 +122,9 @@ export const useUser = () => {
 
     const updatePersonaMutation = useMutation({
         mutationFn: async (updates: Partial<UserProfile['persona']>) => {
-            const currentUser = queryClient.getQueryData<UserProfile>(['user']) || MOCK_USER;
+            const currentUser = queryClient.getQueryData<UserProfile>(['user']);
+            if (!currentUser) throw new Error("No user");
+
             if (!currentUser.persona) {
                 // Initialize if missing
                 const newPersona = { type: 'chicken', stage: 'egg', xp: 0, unlockedItems: [], equippedItems: [], ...updates };
@@ -113,7 +147,9 @@ export const useUser = () => {
 
     const updateUserMutation = useMutation({
         mutationFn: async (updates: Partial<UserProfile>) => {
-            const currentUser = queryClient.getQueryData<UserProfile>(['user']) || MOCK_USER;
+            const currentUser = queryClient.getQueryData<UserProfile>(['user']);
+            if (!currentUser) throw new Error("No user");
+
             const updatedUser = { ...currentUser, ...updates };
             localStorage.setItem('vp_user', JSON.stringify(updatedUser));
             return updatedUser;
@@ -126,6 +162,9 @@ export const useUser = () => {
     return {
         user,
         isLoading,
+        login: loginMutation.mutateAsync,
+        isLoggingIn: loginMutation.isPending,
+        logout: logoutMutation.mutateAsync,
         linkStore: linkStoreMutation.mutateAsync,
         isLinking: linkStoreMutation.isPending,
         syncPurchases: syncPurchasesMutation.mutateAsync,

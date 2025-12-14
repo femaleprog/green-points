@@ -9,10 +9,17 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
+    const handleCardClick = () => {
+        if (product.url) {
+            window.open(product.url, '_blank', 'noopener,noreferrer');
+        }
+    };
+
     return (
         <motion.div
             whileHover={{ y: -4 }}
-            className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden min-w-[160px] max-w-[160px] flex-shrink-0"
+            className={`bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden min-w-[160px] max-w-[160px] flex-shrink-0 ${product.url ? 'cursor-pointer' : ''}`}
+            onClick={handleCardClick}
         >
             <div className="aspect-square relative bg-slate-100">
                 <ImageWithFallback

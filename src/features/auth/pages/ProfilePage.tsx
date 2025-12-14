@@ -1,10 +1,10 @@
 import { useUser } from '@/features/auth/hooks/useUser';
-import { User, Mail, Award, Settings, LogOut, Droplet, CloudRain, Leaf } from 'lucide-react';
+import { User, Mail, Award, Settings, LogOut, Droplet, CloudRain, Leaf, History as HistoryIcon } from 'lucide-react';
 import { PointsBadge } from '@/components/ui/PointsBadge';
 import { AnimatedButton } from '@/components/ui/AnimatedButton';
 
 export const Profile = () => {
-    const { user } = useUser();
+    const { user, logout } = useUser();
 
     if (!user) return null;
 
@@ -79,6 +79,16 @@ export const Profile = () => {
             </div>
 
             <div className="pt-6 space-y-3">
+                <button
+                    onClick={() => window.location.href = '/history'}
+                    className="w-full flex items-center justify-between p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 transition-colors text-slate-900 font-medium"
+                >
+                    <div className="flex items-center gap-3">
+                        <HistoryIcon size={20} className="text-slate-500" />
+                        <span>Purchase History</span>
+                    </div>
+                </button>
+
                 <button className="w-full flex items-center justify-between p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 transition-colors text-slate-900 font-medium">
                     <div className="flex items-center gap-3">
                         <Settings size={20} className="text-slate-500" />
@@ -86,7 +96,11 @@ export const Profile = () => {
                     </div>
                 </button>
 
-                <AnimatedButton variant="secondary" className="w-full justify-center gap-2 text-red-500 hover:text-red-600 hover:bg-red-50 border-red-100">
+                <AnimatedButton
+                    variant="secondary"
+                    className="w-full justify-center gap-2 text-red-500 hover:text-red-600 hover:bg-red-50 border-red-100"
+                    onClick={() => logout()}
+                >
                     <LogOut size={18} />
                     <span>Log Out</span>
                 </AnimatedButton>

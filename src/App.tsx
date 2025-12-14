@@ -13,6 +13,9 @@ import { CartProvider } from '@/features/cart/context/CartContext';
 import { useUser } from '@/features/auth/hooks/useUser';
 import { PersonaSetup } from '@/features/persona/pages/PersonaSetup';
 import { PersonaDashboard } from '@/features/persona/pages/PersonaDashboard';
+import { RecipeDetailPage } from '@/features/recipes/pages/RecipeDetailPage';
+import { LoginPage } from '@/features/auth/pages/LoginPage';
+import { ProtectedRoute } from '@/components/layout/ProtectedRoute';
 
 
 // Create a client
@@ -38,7 +41,13 @@ export default function App() {
                 <Router>
                     <div className="w-full min-h-screen bg-slate-200 flex justify-center">
                         <Routes>
-                            <Route element={<Layout />}>
+                            <Route path="/login" element={<LoginPage />} />
+
+                            <Route element={
+                                <ProtectedRoute>
+                                    <Layout />
+                                </ProtectedRoute>
+                            }>
                                 <Route path="/" element={<Dashboard />} />
                                 <Route path="/link" element={<LinkAccount />} />
                                 <Route path="/search" element={<SearchPage />} />
@@ -48,6 +57,7 @@ export default function App() {
                                 <Route path="/profile" element={<Profile />} />
                                 <Route path="/persona/setup" element={<PersonaSetup />} />
                                 <Route path="/persona" element={<PersonaDashboard />} />
+                                <Route path="/recipes/:id" element={<RecipeDetailPage />} />
                             </Route>
                         </Routes>
                     </div>

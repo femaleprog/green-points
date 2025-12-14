@@ -45,6 +45,7 @@ export interface Product {
     multiplier: number; // default 1
     category?: string;
     price?: number;
+    url?: string;
 }
 
 export interface CompanySpotlight {
@@ -92,6 +93,8 @@ export interface Restaurant {
     tags: string[];
     lat: number;
     lng: number;
+    rewardsCount?: number;
+    inventory?: string[];
 }
 
 export interface GroceryStore {
@@ -102,5 +105,7 @@ export interface GroceryStore {
     offers: string[];
     lat: number;
     lng: number;
+    rewardsCount?: number;
+    inventory?: string[];
 }
 

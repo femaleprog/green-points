@@ -19,7 +19,7 @@ let DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 // Custom Icons
-const createCustomIcon = () => {
+const createCustomIcon = (count?: number) => {
     // "Green Apple Switch" Design - Hollow Version
     // Uniform Green Color
 
@@ -33,6 +33,13 @@ const createCustomIcon = () => {
                 {/* The "Knob" (Green Circle) */}
                 <div className="w-5 h-5 bg-green-600 rounded-full shadow-inner" />
             </div>
+
+            {/* Badge for Rewards Count */}
+            {count && (
+                <div className="absolute top-0 right-0 transform translate-x-1 -translate-y-1 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shadow-sm border border-white z-20">
+                    {count}
+                </div>
+            )}
 
             {/* The Point End (Triangle) - Green Filled */}
             <div className="absolute bottom-[2px] w-4 h-4 bg-green-600 rotate-45 transform rounded-sm shadow-sm z-10" />
@@ -139,12 +146,27 @@ export const MapComponent = ({ items }: MapComponentProps) => {
                 {/* Items Markers */}
                 {items.map((item) => {
                     return (
-                        <Marker key={item.id} position={[item.lat, item.lng]} icon={createCustomIcon()}>
-                            <Popup className="custom-popup">
+                        <Marker key={item.id} position={[item.lat, item.lng]} icon={createCustomIcon(item.rewardsCount)}>
+                            <Popup className="custom-popup min-w-[200px]">
                                 <div className="text-center p-1">
                                     <strong className="block text-sm text-slate-900">{item.name}</strong>
                                     {'rating' in item && <span className="text-xs font-bold text-yellow-500">★ {item.rating}</span>}
                                     {'distance' in item && <span className="text-xs text-slate-500 block">{item.distance}</span>}
+
+                                    {item.inventory && (
+                                        <div className="mt-2 pt-2 border-t border-slate-100 text-left">
+                                            <p className="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1">
+                                                {item.rewardsCount} Vegan Rewards
+                                            </p>
+                                            <div className="flex flex-wrap gap-1">
+                                                {item.inventory.map((inv, i) => (
+                                                    <span key={i} className="bg-green-50 text-green-700 text-[10px] px-1.5 py-0.5 rounded-full border border-green-100">
+                                                        {inv}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             </Popup>
                         </Marker>

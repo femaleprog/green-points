@@ -3,6 +3,7 @@ import { analyzeQuery } from '../services/searchLogic';
 import { searchLocalDb } from '../services/productService';
 
 export const searchController = async (req: Request, res: Response) => {
+    console.log("Search Controller Hit!", req.body);
     const { query } = req.body;
     if (!query) {
         res.status(400).send({ error: 'Query required' });

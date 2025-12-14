@@ -3,14 +3,18 @@ import { AgentResult, LinkRecipeCard } from '@/features/products/components/Link
 import { PriceRangeSlider } from '@/components/ui/PriceRangeSlider';
 import { Search as SearchIcon, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { useSearchParams } from 'react-router-dom';
-// import { MOCK_PRODUCTS } from '@/data/mockData'; // Removed
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ProductCard } from '@/features/products/components/ProductCard';
 import { Product } from '@/types';
+import { searchRecipes } from '@/services/recipeService';
+import { Recipe } from '@/data/mockData';
 
 export const SearchPage = () => {
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
     const initialQuery = searchParams.get('q') || '';
+
+    const [recipes, setRecipes] = useState<Recipe[]>([]);
 
     const [query, setQuery] = useState(initialQuery);
     const [isSearching, setIsSearching] = useState(false);
@@ -24,7 +28,7 @@ export const SearchPage = () => {
     const [isLoadingPromoted, setIsLoadingPromoted] = useState(false);
 
     useEffect(() => {
-        if (initialQuery && !result && !isSearching) {
+        if (initialQuery && !result && !isSearching && recipes.length === 0) {
             handleSearch(new Event('submit') as any, initialQuery);
         }
     }, [initialQuery]);
@@ -34,13 +38,9 @@ export const SearchPage = () => {
         const fetchPromoted = async () => {
             setIsLoadingPromoted(true);
             try {
-                // We ask for 20 and take the last 10 to (likely) align with user request 
-                // "don't use products already in Product of the Week" (assuming Dashboard took first 10 randoms)
-                // Ideally we'd have exclusions but random shuffle is decent enough for MVP.
-                const res = await fetch('http://localhost:3000/products/featured');
+                const res = await fetch('/api/products/featured');
                 if (res.ok) {
                     const data = await res.json();
-
                     const mapped: Product[] = data.map((p: any, i: number) => ({
                         id: `sp-${i}`,
                         name: p.name,
@@ -50,10 +50,9 @@ export const SearchPage = () => {
                         basePoints: Math.floor(parseFloat(p.price || '0') * 10),
                         price: parseFloat(p.price?.replace(/[^\d.,]/g, '').replace(',', '.') || '0'),
                         multiplier: 1,
-                        category: 'Promoted'
+                        category: 'Promoted',
+                        url: p.url // Map URL from server response
                     }));
-                    // Set slice to avoid exact same set if seed was identical, 
-                    // though getFeaturedProducts is likely time-based random.
                     setPromotedProducts(mapped.slice(0, 10));
                 }
             } catch (error) {
@@ -63,18 +62,16 @@ export const SearchPage = () => {
             }
         };
 
-        if (!result) {
+        if (!result && recipes.length === 0) {
             fetchPromoted();
         }
-    }, [result]); // Re-fetch if result is cleared? Or just once. Once is fine. 
+    }, [result, recipes.length]);
 
-    // ... (handleSearch remains same)
     const handleSearch = async (e: React.FormEvent, overrideQuery?: string) => {
         if (e && e.preventDefault) e.preventDefault();
         const q = overrideQuery || query;
         if (!q.trim()) return;
 
-        // Update URL if needed
         if (!overrideQuery) {
             setSearchParams({ q: q.trim() });
         }
@@ -82,48 +79,57 @@ export const SearchPage = () => {
         setIsSearching(true);
         setError(null);
         setResult(null);
+        setRecipes([]);
 
         try {
-            const response = await fetch('http://localhost:3000/search', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ query: query.trim() })
-            });
+            // 1. Search Local Recipes (Deterministic)
+            const matchedRecipes = searchRecipes(q);
+            setRecipes(matchedRecipes);
 
-            if (!response.ok) throw new Error('Agent failed to respond');
-
-            const data: AgentResult = await response.json();
-            setResult(data);
-
-            // Calculate dynamic min/max
-            let min = Infinity;
-            let max = -Infinity;
-            let foundPrice = false;
-
-            data.items.forEach(item => {
-                item.links.forEach(link => {
-                    if (link.price) {
-                        const cleanPrice = parseFloat(link.price.replace(/[^\d.,]/g, '').replace(',', '.'));
-                        if (!isNaN(cleanPrice)) {
-                            if (cleanPrice < min) min = cleanPrice;
-                            if (cleanPrice > max) max = cleanPrice;
-                            foundPrice = true;
-                        }
-                    }
+            // If no recipes found, try the agent search for products
+            if (matchedRecipes.length === 0) {
+                const response = await fetch('/api/search', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: query.trim() })
                 });
-            });
 
-            if (foundPrice) {
-                // Round bounds nicely
-                const safeMin = Math.floor(min);
-                const safeMax = Math.ceil(max);
-                setPriceBounds([safeMin, safeMax]);
-                setPriceRange([safeMin, safeMax]);
-            } else {
-                setPriceBounds([0, 50]);
-                setPriceRange([0, 50]);
+                if (!response.ok) throw new Error('Agent failed to respond');
+
+                const data: AgentResult = await response.json();
+                setResult(data);
+
+                // Calculate dynamic min/max
+                let min = Infinity;
+                let max = -Infinity;
+                let foundPrice = false;
+
+                data.items.forEach((item: any) => {
+                    item.links.forEach((link: any) => {
+                        if (link.price) {
+                            const cleanPrice = parseFloat(link.price.replace(/[^\d.,]/g, '').replace(',', '.'));
+                            if (!isNaN(cleanPrice)) {
+                                if (cleanPrice < min) min = cleanPrice;
+                                if (cleanPrice > max) max = cleanPrice;
+                                foundPrice = true;
+                            }
+                        }
+                    });
+                });
+
+                if (foundPrice) {
+                    const safeMin = Math.floor(min);
+                    const safeMax = Math.ceil(max);
+                    setPriceBounds([safeMin, safeMax]);
+                    setPriceRange([safeMin, safeMax]);
+                } else {
+                    setPriceBounds([0, 50]);
+                    setPriceRange([0, 50]);
+                }
             }
-
+        } catch (err) {
+            console.error(err);
+            setError("No results found. Please try again.");
         } finally {
             setIsSearching(false);
         }
@@ -152,7 +158,7 @@ export const SearchPage = () => {
             </form>
 
             {/* Promoted Products (Empty State) */}
-            {!result && !isSearching && !error && (
+            {!result && !isSearching && !error && recipes.length === 0 && (
                 <div className="mt-8 animate-fade-in">
                     <h2 className="font-bold text-lg text-slate-900 mb-4 flex items-center gap-2">
                         <Sparkles className="w-5 h-5 text-yellow-500" />
@@ -182,7 +188,29 @@ export const SearchPage = () => {
                         >
                             <Sparkles className="w-8 h-8 text-brand-500" />
                         </motion.div>
-                        <p>Asking Gemini & Searching Stores...</p>
+                        <p>Finding the best options for you...</p>
+                    </div>
+                )}
+
+                {!isSearching && recipes.length > 0 && (
+                    <div className="space-y-4 mt-6">
+                        <h2 className="font-bold text-lg text-slate-900 mb-2">Matching Recipes</h2>
+                        {recipes.map(recipe => (
+                            <div
+                                key={recipe.id}
+                                onClick={() => navigate(`/recipes/${recipe.id}`)}
+                                className="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden cursor-pointer hover:shadow-md transition-shadow"
+                            >
+                                <div className="h-40 w-full relative">
+                                    <img src={recipe.imageUrl} alt={recipe.name} className="w-full h-full object-cover" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                    <div className="absolute bottom-3 left-3 text-white">
+                                        <h3 className="font-bold text-lg">{recipe.name}</h3>
+                                        <p className="text-xs opacity-90">{recipe.pointsEarned} Points • {recipe.carbonSavedKg}kg CO2 Saved</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 )}
 

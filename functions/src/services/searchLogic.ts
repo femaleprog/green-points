@@ -76,8 +76,13 @@ export const analyzeQuery = async (userQuery: string): Promise<SearchAnalysis> =
                 throw new Error("No Mistral Key provided");
             }
 
-        } catch (e) {
-            console.log("LLM Generation failed or skipped, using fallback parsing simulation.");
+        } catch (e: any) {
+            console.error("LLM Generation Error Details:", e.message);
+            if (e.response) {
+                console.error("API Response Status:", e.response.status);
+                console.error("API Response Data:", JSON.stringify(e.response.data));
+            }
+            console.log("Falling back to parsing simulation.");
             // Fallback: Deterministic parsing of the context (The "Simulation")
             // This ensures the demo works 100% even without the API key
             return simulateSmartParsing(userQuery, context);
