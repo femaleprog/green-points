@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Home, ShoppingBag, Gift, History } from 'lucide-react';
+import { Home, ShoppingBag, Gift, History, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
@@ -7,6 +7,7 @@ export const BottomNav = () => {
     const tabs = [
         { name: 'Home', icon: Home, path: '/' },
         { name: 'Link', icon: ShoppingBag, path: '/link' },
+        { name: 'Search', icon: Search, path: '/search' },
         { name: 'Rewards', icon: Gift, path: '/rewards' },
         { name: 'History', icon: History, path: '/history' },
     ];

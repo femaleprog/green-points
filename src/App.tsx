@@ -7,6 +7,9 @@ import { LinkAccount } from '@/pages/LinkAccount';
 import { Rewards } from '@/pages/Rewards';
 import { HistoryPage } from '@/pages/History';
 import { Profile } from '@/pages/Profile';
+import { SearchPage } from '@/pages/SearchPage';
+import { CartPage } from '@/pages/CartPage';
+import { CartProvider } from '@/contexts/CartContext';
 import { useUser } from '@/hooks/useUser';
 
 // Create a client
@@ -28,19 +31,23 @@ const Layout = () => {
 export default function App() {
     return (
         <QueryClientProvider client={queryClient}>
-            <Router>
-                <div className="w-full min-h-screen bg-slate-200 flex justify-center">
-                    <Routes>
-                        <Route element={<Layout />}>
-                            <Route path="/" element={<Dashboard />} />
-                            <Route path="/link" element={<LinkAccount />} />
-                            <Route path="/rewards" element={<Rewards />} />
-                            <Route path="/history" element={<HistoryPage />} />
-                            <Route path="/profile" element={<Profile />} />
-                        </Route>
-                    </Routes>
-                </div>
-            </Router>
+            <CartProvider>
+                <Router>
+                    <div className="w-full min-h-screen bg-slate-200 flex justify-center">
+                        <Routes>
+                            <Route element={<Layout />}>
+                                <Route path="/" element={<Dashboard />} />
+                                <Route path="/link" element={<LinkAccount />} />
+                                <Route path="/search" element={<SearchPage />} />
+                                <Route path="/rewards" element={<Rewards />} />
+                                <Route path="/cart" element={<CartPage />} />
+                                <Route path="/history" element={<HistoryPage />} />
+                                <Route path="/profile" element={<Profile />} />
+                            </Route>
+                        </Routes>
+                    </div>
+                </Router>
+            </CartProvider>
         </QueryClientProvider>
     );
 }

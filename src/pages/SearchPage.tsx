@@ -1,39 +1,76 @@
 import { useState } from 'react';
-import { MOCK_RECIPES, Recipe } from '@/data/mockData';
-import { RecipeCard } from '@/components/RecipeCard';
+import { AgentResult, LinkRecipeCard } from '@/components/LinkRecipeCard';
+import { PriceRangeSlider } from '@/components/PriceRangeSlider';
 import { Search as SearchIcon, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { CartBubble } from '@/components/CartBubble';
 
 export const SearchPage = () => {
     const [query, setQuery] = useState('');
     const [isSearching, setIsSearching] = useState(false);
-    const [results, setResults] = useState<Recipe[]>([]);
-    const [hasSearched, setHasSearched] = useState(false);
+    const [result, setResult] = useState<AgentResult | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    const [priceRange, setPriceRange] = useState<[number, number]>([0, 50]);
+    const [priceBounds, setPriceBounds] = useState<[number, number]>([0, 50]);
 
-    const handleSearch = (e: React.FormEvent) => {
+    const handleSearch = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!query.trim()) return;
 
         setIsSearching(true);
-        setHasSearched(true);
-        setResults([]);
+        setError(null);
+        setResult(null);
 
-        // Mock AI Delay
-        setTimeout(() => {
-            // Simple mock matching logic
-            const found = MOCK_RECIPES.filter(r =>
-                r.name.toLowerCase().includes(query.toLowerCase()) ||
-                r.originalName.toLowerCase().includes(query.toLowerCase()) ||
-                r.ingredients.original.some(i => i.toLowerCase().includes(query.toLowerCase()))
-            );
-            setResults(found);
+        try {
+            const response = await fetch('http://localhost:3000/search', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ query: query.trim() })
+            });
+
+            if (!response.ok) throw new Error('Agent failed to respond');
+
+            const data: AgentResult = await response.json();
+            setResult(data);
+
+            // Calculate dynamic min/max
+            let min = Infinity;
+            let max = -Infinity;
+            let foundPrice = false;
+
+            data.items.forEach(item => {
+                item.links.forEach(link => {
+                    if (link.price) {
+                        const cleanPrice = parseFloat(link.price.replace(/[^\d.,]/g, '').replace(',', '.'));
+                        if (!isNaN(cleanPrice)) {
+                            if (cleanPrice < min) min = cleanPrice;
+                            if (cleanPrice > max) max = cleanPrice;
+                            foundPrice = true;
+                        }
+                    }
+                });
+            });
+
+            if (foundPrice) {
+                // Round bounds nicely
+                const safeMin = Math.floor(min);
+                const safeMax = Math.ceil(max);
+                setPriceBounds([safeMin, safeMax]);
+                setPriceRange([safeMin, safeMax]);
+            } else {
+                setPriceBounds([0, 50]);
+                setPriceRange([0, 50]);
+            }
+
+        } catch (err) {
+            console.error(err);
+            setError('Failed to connect to the Green Agent. Is the backend running?');
+        } finally {
             setIsSearching(false);
-        }, 1500);
+        }
     };
 
     return (
-        <div className="pb-24 pt-6 px-4 min-h-screen relative animate-fade-in">
+        <div className="pb-24 pt-6 px-4 min-h-screen relative animate-fade-in bg-slate-50">
             <h1 className="text-2xl font-bold text-slate-900 mb-6">Green Chef AI</h1>
 
             <form onSubmit={handleSearch} className="mb-8 relative">
@@ -47,9 +84,10 @@ export const SearchPage = () => {
                 <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
                 <button
                     type="submit"
-                    className="absolute right-2 top-2 bottom-2 bg-brand-600 text-white px-4 rounded-xl font-medium text-sm hover:bg-brand-700 transition-colors"
+                    disabled={isSearching}
+                    className="absolute right-2 top-2 bottom-2 bg-brand-600 text-white px-4 rounded-xl font-medium text-sm hover:bg-brand-700 transition-colors disabled:opacity-50"
                 >
-                    Go
+                    {isSearching ? '...' : 'Go'}
                 </button>
             </form>
 
@@ -62,23 +100,53 @@ export const SearchPage = () => {
                         >
                             <Sparkles className="w-8 h-8 text-brand-500" />
                         </motion.div>
-                        <p>Analyzing ingredients & finding eco-swaps...</p>
+                        <p>Asking Gemini & Searching Stores...</p>
                     </div>
                 )}
 
-                {!isSearching && hasSearched && results.length === 0 && (
-                    <div className="text-center py-12 text-slate-500">
-                        <p>No green version found yet for this recipe.</p>
-                        <p className="text-sm">Try "Cheesecake" or "Tartiflette"</p>
+                {error && (
+                    <div className="bg-red-50 text-red-600 p-4 rounded-xl text-sm text-center border border-red-100">
+                        {error}
+                        <div className="mt-2 text-xs text-slate-500">
+                            Make sure to run: <code>npm run agent</code> in <code>functions/</code>
+                        </div>
                     </div>
                 )}
 
-                {results.map(recipe => (
-                    <RecipeCard key={recipe.id} recipe={recipe} />
-                ))}
+                {result && !isSearching && (
+                    <>
+                        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mb-6">
+                            <h3 className="text-sm font-bold text-slate-700 mb-2 px-2">Filtrer par prix</h3>
+                            <PriceRangeSlider
+                                min={priceBounds[0]}
+                                max={priceBounds[1]}
+                                value={priceRange}
+                                onChange={setPriceRange}
+                            />
+                        </div>
+
+                        <LinkRecipeCard
+                            result={{
+                                ...result,
+                                items: result.items.map(item => ({
+                                    ...item,
+                                    links: item.links.filter(link => {
+                                        if (!link.price) return true; // Keep unknown prices? Or filter? Let's keep.
+                                        // Price is string "X.XX €" or "X.XX" or similar.
+                                        // Need to parse standard float.
+                                        const cleanPrice = parseFloat(link.price.replace(/[^\d.,]/g, '').replace(',', '.'));
+                                        if (isNaN(cleanPrice)) return true;
+                                        return cleanPrice >= priceRange[0] && cleanPrice <= priceRange[1];
+                                    })
+                                })).filter(item => item.links.length > 0) // Hide ingredients with 0 matches after filter? Or show empty? 
+                                // User said "afficher que les ingrédients compris dans cette tranche".
+                                // If an ingredient has 0 alternatives in range, maybe hide it or show empty state.
+                                // Let's keep it but links will be empty, LinkRecipeCard handles empty links.
+                            }}
+                        />
+                    </>
+                )}
             </div>
-
-            <CartBubble />
         </div>
     );
 };
