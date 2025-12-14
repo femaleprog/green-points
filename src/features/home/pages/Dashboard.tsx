@@ -28,6 +28,7 @@ export const Dashboard = () => {
                     imageUrl: p.image || 'https://via.placeholder.com/400',
                     isVegan: true,
                     basePoints: Math.floor(parseFloat(p.price || '0') * 10),
+                    price: parseFloat(p.price?.replace(/[^\d.,]/g, '').replace(',', '.') || '0'), // Parse price
                     multiplier: 1,
                     category: 'Featured'
                 }));

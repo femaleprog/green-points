@@ -12,9 +12,9 @@ const KNOWLEDGE_BASE: Record<string, SearchAnalysis> = {
         isDish: true,
         originalName: 'Raclette',
         ingredients: [
-            { original: 'Fromage à raclette', veganAlternative: 'Fromage' },
-            { original: 'Charcuterie', veganAlternative: 'Tofu Fumé' },
-            { original: 'Lait (pour les patates)', veganAlternative: 'Boisson Soja' }
+            { original: 'Fromage à raclette', veganAlternative: 'Fromage Raclette' },
+            { original: 'Charcuterie', veganAlternative: 'Tranches Végétales' },
+            { original: 'Pommes de terre', veganAlternative: 'Pommes de terre' }
         ]
     },
     'tartiflette': {

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Product } from '@/types';
-import { Plus, Package } from 'lucide-react';
+import { Package } from 'lucide-react';
 import { ImageWithFallback } from '@/components/ui/ImageWithFallback';
 
 interface ProductCardProps {
@@ -37,9 +37,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                     <span className="text-xs font-bold text-brand-600 bg-brand-50 px-2 py-1 rounded-md">
                         +{product.basePoints * product.multiplier} pts
                     </span>
-                    <button className="p-1.5 rounded-full bg-slate-100 text-slate-600 hover:bg-brand-500 hover:text-white transition-colors">
-                        <Plus className="w-4 h-4" />
-                    </button>
+                    <span className="text-sm font-bold text-slate-900">
+                        {product.price ? `${product.price.toFixed(2)}€` : '--'}
+                    </span>
                 </div>
             </div>
         </motion.div>

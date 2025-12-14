@@ -27,6 +27,7 @@ export interface Product {
     basePoints: number; // default 10
     multiplier: number; // default 1
     category?: string;
+    price?: number;
 }
 
 export interface CompanySpotlight {
