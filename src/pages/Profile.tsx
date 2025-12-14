@@ -1,5 +1,6 @@
 import { useUser } from '@/hooks/useUser';
-import { User, Mail, Award, Settings, LogOut } from 'lucide-react';
+import { User, Mail, Award, Settings, LogOut, Droplet, CloudRain } from 'lucide-react';
+import { Leaf } from 'lucide-react';
 import { PointsBadge } from '@/components/PointsBadge';
 import { AnimatedButton } from '@/components/AnimatedButton';
 
@@ -21,6 +22,39 @@ export const Profile = () => {
                 </div>
                 <h2 className="text-xl font-bold text-slate-900">{user.displayName || 'Vegan Warrior'}</h2>
                 <p className="text-slate-500 text-sm">{user.email || 'user@example.com'}</p>
+            </div>
+
+            {/* Impact Stats */}
+            <div className="grid grid-cols-3 gap-3 mb-8">
+                <div className="bg-emerald-50 border border-emerald-100 p-3 rounded-2xl flex flex-col items-center justify-center text-center gap-2">
+                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-emerald-600 shadow-sm">
+                        <Leaf size={16} />
+                    </div>
+                    <div>
+                        <span className="block font-bold text-slate-900 text-lg">{user.impactStats?.landSaved || 0}</span>
+                        <span className="text-[10px] uppercase font-bold text-emerald-600 tracking-wider">m² Land</span>
+                    </div>
+                </div>
+
+                <div className="bg-sky-50 border border-sky-100 p-3 rounded-2xl flex flex-col items-center justify-center text-center gap-2">
+                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-sky-600 shadow-sm">
+                        <CloudRain size={16} />
+                    </div>
+                    <div>
+                        <span className="block font-bold text-slate-900 text-lg">{user.impactStats?.co2Saved || 0}</span>
+                        <span className="text-[10px] uppercase font-bold text-sky-600 tracking-wider">kg CO₂</span>
+                    </div>
+                </div>
+
+                <div className="bg-blue-50 border border-blue-100 p-3 rounded-2xl flex flex-col items-center justify-center text-center gap-2">
+                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm">
+                        <Droplet size={16} />
+                    </div>
+                    <div>
+                        <span className="block font-bold text-slate-900 text-lg">{user.impactStats?.waterSaved || 0}</span>
+                        <span className="text-[10px] uppercase font-bold text-blue-600 tracking-wider">L Water</span>
+                    </div>
+                </div>
             </div>
 
             <div className="space-y-4">
