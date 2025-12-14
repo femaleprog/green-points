@@ -14,6 +14,13 @@ const MOCK_USER: UserProfile = {
         co2Saved: 12.5,
         waterSaved: 450,
         landSaved: 8.2
+    },
+    persona: {
+        type: 'chicken',
+        stage: 'chick',
+        xp: 120,
+        unlockedItems: [],
+        equippedItems: []
     }
 };
 
@@ -21,7 +28,11 @@ const MOCK_USER: UserProfile = {
 const fetchUser = async (): Promise<UserProfile> => {
     // In real app: const docSnap = await getDoc(doc(db, 'users', auth.currentUser.uid));
     const stored = localStorage.getItem('vp_user');
-    if (stored) return JSON.parse(stored);
+    if (stored) {
+        const parsed = JSON.parse(stored);
+        // Merge with MOCK_USER to ensure new fields (like persona) are present if missing
+        return { ...MOCK_USER, ...parsed, persona: parsed.persona || MOCK_USER.persona };
+    }
     return MOCK_USER;
 };
 
@@ -77,12 +88,49 @@ export const useUser = () => {
         }
     });
 
+    const updatePersonaMutation = useMutation({
+        mutationFn: async (updates: Partial<UserProfile['persona']>) => {
+            const currentUser = queryClient.getQueryData<UserProfile>(['user']) || MOCK_USER;
+            if (!currentUser.persona) {
+                // Initialize if missing
+                const newPersona = { type: 'chicken', stage: 'egg', xp: 0, unlockedItems: [], equippedItems: [], ...updates };
+                const updatedUser = { ...currentUser, persona: newPersona };
+                localStorage.setItem('vp_user', JSON.stringify(updatedUser));
+                return updatedUser;
+            }
+
+            const updatedUser = {
+                ...currentUser,
+                persona: { ...currentUser.persona, ...updates }
+            };
+            localStorage.setItem('vp_user', JSON.stringify(updatedUser));
+            return updatedUser;
+        },
+        onSuccess: (newUser) => {
+            queryClient.setQueryData(['user'], newUser);
+        }
+    });
+
+    const updateUserMutation = useMutation({
+        mutationFn: async (updates: Partial<UserProfile>) => {
+            const currentUser = queryClient.getQueryData<UserProfile>(['user']) || MOCK_USER;
+            const updatedUser = { ...currentUser, ...updates };
+            localStorage.setItem('vp_user', JSON.stringify(updatedUser));
+            return updatedUser;
+        },
+        onSuccess: (newUser) => {
+            queryClient.setQueryData(['user'], newUser);
+        }
+    });
+
     return {
         user,
         isLoading,
         linkStore: linkStoreMutation.mutateAsync,
         isLinking: linkStoreMutation.isPending,
         syncPurchases: syncPurchasesMutation.mutateAsync,
-        isSyncing: syncPurchasesMutation.isPending
+        isSyncing: syncPurchasesMutation.isPending,
+        updatePersona: updatePersonaMutation.mutateAsync,
+        updateUser: updateUserMutation.mutateAsync
     };
 };

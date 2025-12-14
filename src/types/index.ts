@@ -9,6 +9,23 @@ export interface UserProfile {
         waterSaved: number; // liters
         landSaved: number; // m2
     };
+    persona?: UserPersona;
+}
+
+export interface UserPersona {
+    type: 'chicken'; // future: 'cow', 'pig' etc
+    stage: 'egg' | 'chick' | 'teen' | 'adult' | 'glowup';
+    xp: number;
+    unlockedItems: string[]; // item IDs
+    equippedItems: string[]; // item IDs
+}
+
+export interface ShopItem {
+    id: string;
+    name: string;
+    type: 'hat' | 'glasses' | 'accessory';
+    cost: number;
+    imageUrl: string;
 }
 
 export interface Store {

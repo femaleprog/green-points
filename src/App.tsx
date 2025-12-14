@@ -11,6 +11,9 @@ import { SearchPage } from '@/features/products/pages/SearchPage';
 import { CartPage } from '@/features/cart/pages/CartPage';
 import { CartProvider } from '@/features/cart/context/CartContext';
 import { useUser } from '@/features/auth/hooks/useUser';
+import { PersonaSetup } from '@/features/persona/pages/PersonaSetup';
+import { PersonaDashboard } from '@/features/persona/pages/PersonaDashboard';
+
 
 // Create a client
 const queryClient = new QueryClient();
@@ -19,7 +22,7 @@ const Layout = () => {
     const { user } = useUser();
     return (
         <div className="min-h-screen bg-slate-50/50 flex flex-col max-w-md mx-auto relative shadow-2xl shadow-slate-200 overflow-hidden min-h-[100dvh]">
-            <Header userPoints={user?.points} />
+            <Header user={user} />
             <main className="flex-1 overflow-y-auto scrollbar-hide">
                 <Outlet />
             </main>
@@ -43,6 +46,8 @@ export default function App() {
                                 <Route path="/cart" element={<CartPage />} />
                                 <Route path="/history" element={<HistoryPage />} />
                                 <Route path="/profile" element={<Profile />} />
+                                <Route path="/persona/setup" element={<PersonaSetup />} />
+                                <Route path="/persona" element={<PersonaDashboard />} />
                             </Route>
                         </Routes>
                     </div>
