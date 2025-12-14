@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { MOCK_REWARDS } from '@/data/mockData';
 import { RESTAURANTS, GROCERY_STORES } from '@/data/mapData';
 import { useUser } from '@/features/auth/hooks/useUser';
 import { AnimatedButton } from '@/components/ui/AnimatedButton';
@@ -13,10 +12,41 @@ type ViewState = 'home' | 'restaurants' | 'groceries';
 export const Rewards = () => {
     const { user } = useUser();
     const [view, setView] = useState<ViewState>('home');
+    const [selectedShopPosition, setSelectedShopPosition] = useState<{ lat: number; lng: number } | null>(null);
 
     // Map Data
     const allRestaurants = RESTAURANTS;
     const allGroceries = GROCERY_STORES;
+
+    // Create shop-based rewards from actual restaurants and groceries
+    const shopBasedRewards: Array<{
+        id: string;
+        title: string;
+        cost: number;
+        description: string;
+        imageUrl: string;
+        shopId: string;
+        type: 'restaurant' | 'grocery';
+    }> = [
+            ...allRestaurants.slice(0, 2).map(restaurant => ({
+                id: `reward-${restaurant.id}`,
+                title: `Free Delivery at ${restaurant.name}`,
+                cost: 200,
+                description: `Get free delivery on your next order from ${restaurant.name}`,
+                imageUrl: restaurant.imageUrl,
+                shopId: restaurant.id,
+                type: 'restaurant' as const
+            })),
+            ...allGroceries.slice(0, 2).map(grocery => ({
+                id: `reward-${grocery.id}`,
+                title: `${grocery.offers[0] || '10% off'} at ${grocery.name}`,
+                cost: 150,
+                description: grocery.offers[0] || `Special discount at ${grocery.name}`,
+                imageUrl: grocery.image,
+                shopId: grocery.id,
+                type: 'grocery' as const
+            }))
+        ];
 
     if (!user) return null;
 
@@ -79,12 +109,16 @@ export const Rewards = () => {
                             </div>
 
                             <div className="space-y-4">
-                                {MOCK_REWARDS.map((reward) => {
+                                {shopBasedRewards.map((reward) => {
                                     const canAfford = user.points >= reward.cost;
                                     return (
                                         <div key={reward.id} className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex gap-4">
-                                            <div className="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center text-3xl shrink-0">
-                                                {reward.emoji}
+                                            <div className="w-16 h-16 bg-slate-50 rounded-xl overflow-hidden shrink-0">
+                                                <img
+                                                    src={reward.imageUrl}
+                                                    alt={reward.title}
+                                                    className="w-full h-full object-cover"
+                                                />
                                             </div>
                                             <div className="flex-1">
                                                 <div className="flex justify-between items-start">
@@ -99,6 +133,11 @@ export const Rewards = () => {
                                                         variant={canAfford ? 'primary' : 'secondary'}
                                                         disabled={!canAfford}
                                                         className="py-1 px-3 text-xs h-8"
+                                                        onClick={() => {
+                                                            if (canAfford) {
+                                                                setView(reward.type === 'restaurant' ? 'restaurants' : 'groceries');
+                                                            }
+                                                        }}
                                                     >
                                                         Redeem
                                                     </AnimatedButton>
@@ -124,11 +163,19 @@ export const Rewards = () => {
                             <h2 className="text-xl font-bold text-slate-900">Restaurants</h2>
                         </div>
 
-                        <MapComponent items={allRestaurants} />
+                        <MapComponent items={allRestaurants} centerPosition={selectedShopPosition} />
 
                         <div className="space-y-6">
                             {allRestaurants.map((restaurant) => (
-                                <div key={restaurant.id} className="group cursor-pointer">
+                                <div
+                                    key={restaurant.id}
+                                    className="group cursor-pointer"
+                                    onClick={() => {
+                                        setSelectedShopPosition({ lat: restaurant.lat, lng: restaurant.lng });
+                                        // Scroll to map
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                >
                                     <div className="relative h-40 mb-3 overflow-hidden rounded-2xl">
                                         <img
                                             src={restaurant.imageUrl}
@@ -169,11 +216,19 @@ export const Rewards = () => {
                             <h2 className="text-xl font-bold text-slate-900">Groceries</h2>
                         </div>
 
-                        <MapComponent items={allGroceries} />
+                        <MapComponent items={allGroceries} centerPosition={selectedShopPosition} />
 
                         <div className="space-y-6">
                             {allGroceries.map((store) => (
-                                <div key={store.id} className="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm">
+                                <div
+                                    key={store.id}
+                                    className="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm cursor-pointer hover:shadow-md transition-shadow"
+                                    onClick={() => {
+                                        setSelectedShopPosition({ lat: store.lat, lng: store.lng });
+                                        // Scroll to map
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }}
+                                >
                                     <div className="flex gap-4 mb-4">
                                         <img src={store.image} alt={store.name} className="w-16 h-16 rounded-xl object-cover bg-slate-50" />
                                         <div>

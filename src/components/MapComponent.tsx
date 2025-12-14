@@ -83,9 +83,10 @@ function RecenterAutomatically({ lat, lng }: { lat: number; lng: number }) {
 
 interface MapComponentProps {
     items: (Restaurant | GroceryStore)[];
+    centerPosition?: { lat: number; lng: number } | null;
 }
 
-export const MapComponent = ({ items }: MapComponentProps) => {
+export const MapComponent = ({ items, centerPosition }: MapComponentProps) => {
     const [position, setPosition] = useState<{ lat: number; lng: number } | null>(null);
     const [error, setError] = useState<string | null>(null);
 
@@ -109,7 +110,8 @@ export const MapComponent = ({ items }: MapComponentProps) => {
     }, []);
 
     // Default center (Paris) if no location yet
-    const center = position || { lat: 48.8566, lng: 2.3522 };
+    // Use centerPosition if provided, otherwise use user position or default
+    const center = centerPosition || position || { lat: 48.8566, lng: 2.3522 };
 
     return (
         <div className="h-48 rounded-2xl overflow-hidden shadow-sm border border-slate-200 mb-6 relative z-0">
@@ -133,6 +135,7 @@ export const MapComponent = ({ items }: MapComponentProps) => {
                 />
 
                 {position && <RecenterAutomatically lat={position.lat} lng={position.lng} />}
+                {centerPosition && <RecenterAutomatically lat={centerPosition.lat} lng={centerPosition.lng} />}
 
                 {/* User Location Marker */}
                 {position && (
