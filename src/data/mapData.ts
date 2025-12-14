@@ -1,4 +1,4 @@
-import { Restaurant, GroceryStore } from '@/lib/types';
+import { Restaurant, GroceryStore } from '@/types';
 
 export const RESTAURANTS: Restaurant[] = [
     // Base Data (moved from mockData.ts)

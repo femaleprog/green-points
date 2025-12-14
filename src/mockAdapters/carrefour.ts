@@ -1,4 +1,4 @@
-import { Purchase } from '@/lib/types';
+import { Purchase } from '@/types';
 import { MOCK_PRODUCTS } from '@/data/mockData';
 
 export const syncPurchases = async (userId: string): Promise<Purchase[]> => {

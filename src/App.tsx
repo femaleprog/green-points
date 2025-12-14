@@ -1,16 +1,16 @@
 import { BrowserRouter as Router, Routes, Route, Outlet } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BottomNav } from '@/components/BottomNav';
-import { Header } from '@/components/Header';
-import { Dashboard } from '@/pages/Dashboard';
-import { LinkAccount } from '@/pages/LinkAccount';
-import { Rewards } from '@/pages/Rewards';
-import { HistoryPage } from '@/pages/History';
-import { Profile } from '@/pages/Profile';
-import { SearchPage } from '@/pages/SearchPage';
-import { CartPage } from '@/pages/CartPage';
-import { CartProvider } from '@/contexts/CartContext';
-import { useUser } from '@/hooks/useUser';
+import { BottomNav } from '@/components/layout/BottomNav';
+import { Header } from '@/components/layout/Header';
+import { Dashboard } from '@/features/home/pages/Dashboard';
+import { LinkAccount } from '@/features/auth/pages/LinkAccountPage';
+import { Rewards } from '@/features/rewards/pages/RewardsPage';
+import { HistoryPage } from '@/features/history/pages/HistoryPage';
+import { Profile } from '@/features/auth/pages/ProfilePage';
+import { SearchPage } from '@/features/products/pages/SearchPage';
+import { CartPage } from '@/features/cart/pages/CartPage';
+import { CartProvider } from '@/features/cart/context/CartContext';
+import { useUser } from '@/features/auth/hooks/useUser';
 
 // Create a client
 const queryClient = new QueryClient();

@@ -1,4 +1,4 @@
-import { useCart } from '@/contexts/CartContext';
+import { useCart } from '@/features/cart/context/CartContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBasket } from 'lucide-react';
 import { Link } from 'react-router-dom';

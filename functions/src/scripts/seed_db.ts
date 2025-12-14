@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { scrapeAuchan, scrapeCarrefour, scrapeMonoprix, scrapeOfficialVeganShop } from '../agent/scraper';
+import { scrapeAuchan, scrapeCarrefour, scrapeMonoprix, scrapeOfficialVeganShop } from '../services/scraper';
 
 // Define the "Vegan Basket" keywords to crawl
 const CRAWL_KEYWORDS = [

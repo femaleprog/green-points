@@ -1,4 +1,4 @@
-import { Purchase, PurchaseItem } from '@/lib/types';
+import { Purchase, PurchaseItem } from '@/types';
 import { MOCK_PRODUCTS } from '@/data/mockData';
 
 // Simulate fetching last 30 days of purchases
