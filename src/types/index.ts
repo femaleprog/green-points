@@ -4,6 +4,11 @@ export interface UserProfile {
     displayName: string | null;
     points: number;
     linkedStores: string[]; // Store IDs
+    impactStats?: {
+        co2Saved: number; // kg
+        waterSaved: number; // liters
+        landSaved: number; // m2
+    };
 }
 
 export interface Store {

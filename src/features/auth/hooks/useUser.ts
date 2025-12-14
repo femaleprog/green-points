@@ -9,7 +9,12 @@ const MOCK_USER: UserProfile = {
     email: 'alice@example.com',
     displayName: 'Alice Green',
     points: 1240,
-    linkedStores: []
+    linkedStores: [],
+    impactStats: {
+        co2Saved: 12.5,
+        waterSaved: 450,
+        landSaved: 8.2
+    }
 };
 
 // Simulate API call
