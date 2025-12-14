@@ -1,3 +1,5 @@
+import { GreenSwitch } from '@/components/ui/GreenSwitch';
+
 import { Link } from 'react-router-dom';
 import { Bell, User } from 'lucide-react';
 import { PointsBadge } from '@/components/ui/PointsBadge';
@@ -19,6 +21,7 @@ const PERSONA_IMGS: Record<string, string> = {
     glowup: glowupImg
 };
 
+
 export const Header = ({ user }: HeaderProps) => {
     const personaImg = user?.persona ? PERSONA_IMGS[user.persona.stage] : null;
 
@@ -26,8 +29,10 @@ export const Header = ({ user }: HeaderProps) => {
         <header className="sticky top-0 z-30 w-full bg-slate-50/80 backdrop-blur-md border-b border-slate-200 px-4 py-3">
             <div className="flex items-center justify-between max-w-md mx-auto">
                 <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-brand-500 flex items-center justify-center text-white font-bold">V</div>
-                    <span className="font-bold text-lg tracking-tight text-slate-900">VeganPoints</span>
+                    <GreenSwitch className="scale-90" interactive={false} isOn={true} />
+                    <span className="font-bold text-lg tracking-tight text-slate-900">
+                        Green<span className="text-brand-600">Switch</span>
+                    </span>
                 </div>
 
                 <div className="flex items-center gap-3">

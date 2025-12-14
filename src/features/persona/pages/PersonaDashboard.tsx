@@ -7,6 +7,7 @@ import { cn } from '@/utils';
 import { ShopItem } from '@/types';
 
 // Assets
+import { getPersonaImage } from '@/features/persona/personaAssets';
 import eggImg from '@/assets/persona/egg.png';
 import chickImg from '@/assets/persona/chick.png';
 import adultImg from '@/assets/persona/adult.png';
@@ -69,6 +70,8 @@ export const PersonaDashboard = () => {
         updatePersona({ equippedItems: newEquipped });
     };
 
+    const personaImage = getPersonaImage(stage, equippedItems);
+
     return (
         <div className="min-h-screen bg-white pb-24">
             {/* Header */}
@@ -84,26 +87,16 @@ export const PersonaDashboard = () => {
 
             {/* Persona Display */}
             <div className="py-8 flex flex-col items-center justify-center relative bg-gradient-to-b from-blue-50 to-white">
-                <div className="relative w-48 h-48">
+                <div className="relative w-64 h-64">
                     <motion.img
-                        key={stage}
-                        initial={{ scale: 0.8, opacity: 0 }}
+                        key={`${stage}-${equippedItems.join('-')}`} // unique key to trigger animation on change
+                        initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
-                        src={currentStage.img}
+                        transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                        src={personaImage}
                         alt="Persona"
                         className="w-full h-full object-contain drop-shadow-xl z-0 relative"
                     />
-
-                    {/* Equipped Items Layering - minimalistic implementation */}
-                    {equippedItems.includes('hat_red') && (
-                        <img src={hatImg} className="absolute -top-4 left-10 w-28 drop-shadow-md z-10" alt="hat" />
-                    )}
-                    {equippedItems.includes('glasses_cool') && (
-                        <img src={glassesImg} className="absolute top-14 left-10 w-28 drop-shadow-md z-10" alt="glasses" />
-                    )}
-                    {equippedItems.includes('bowtie_red') && (
-                        <img src={bowtieImg} className="absolute top-32 left-16 w-16 drop-shadow-md z-10" alt="bowtie" />
-                    )}
                 </div>
 
                 <h2 className="mt-4 text-2xl font-bold text-slate-800">{currentStage.label}</h2>

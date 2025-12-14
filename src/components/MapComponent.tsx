@@ -115,9 +115,9 @@ export const MapComponent = ({ items }: MapComponentProps) => {
             <MapContainer
                 center={[center.lat, center.lng]}
                 zoom={14}
-                scrollWheelZoom={false}
+                scrollWheelZoom={true}
                 style={{ height: '100%', width: '100%' }}
-                zoomControl={false}
+                zoomControl={true}
             >
                 {/* CartoDB Positron Tiles - Clean & Minimalist */}
                 <TileLayer
