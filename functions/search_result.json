@@ -1,1 +1,21 @@
-{"isDish":true,"name":"Raclette","items":[{"original":"Fromage à raclette","alternative":"Fromage","links":[{"name":"Saucisses Végétales Kabanos Sans Fromage - 160g","price":"3,99 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/meatless-cheese-flavored-kabanos-sausages-16730.html","image":"https://www.officialveganshop.com/23594-home_default/meatless-cheese-flavored-kabanos-sausages.jpg"},{"name":"Fromage Raclette Alternative 100% Végétale VIOLIFE (17 €/kg)","price":"3.49 €","store":"Carrefour","url":"https://www.carrefour.fr/p/fromage-raclette-alternative-100-vegetale-violife-5202390031861","image":""}]},{"original":"Charcuterie","alternative":"Tofu Fumé","links":[{"name":"Cappelletti Vegan farcis au Tofu Fumé - 250g","price":"3,90 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/cappelletti-vegan-tofu-fume-d-angelo-12504.html","image":"https://www.officialveganshop.com/23817-home_default/cappelletti-vegan-tofu-fume-d-angelo.jpg"},{"name":"Tofu Fumé - 200g","price":"3,09 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/tofu-fume-taifun-200g-10172.html","image":"https://www.officialveganshop.com/15357-home_default/tofu-fume-taifun-200g.jpg"},{"name":"Tofu Fumé Amandes Sésame - 200g","price":"3,69 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/tofu-fume-amandes-sesame-taifun-200g-8910.html","image":"https://www.officialveganshop.com/23816-home_default/tofu-fume-amandes-sesame-taifun-200g.jpg"},{"name":"Tofu Fumé Black Forest - 200g","price":"3,69 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/tofu-fume-black-forest-taifun-200g-9283.html","image":"https://www.officialveganshop.com/15356-home_default/tofu-fume-black-forest-taifun-200g.jpg"},{"name":"Tofu Fumé Bio - 200g","price":"3,15 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/tofu-fume-bio-200g-vantastic-foods-8266.html","image":"https://www.officialveganshop.com/15208-home_default/tofu-fume-bio-200g-vantastic-foods.jpg"}]},{"original":"Lait (pour les patates)","alternative":"Boisson Soja","links":[{"name":"Boisson Soja Fibres - 75cl","price":"2,99 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/boisson-soja-fibres-sojade-16487.html","image":"https://www.officialveganshop.com/22861-home_default/boisson-soja-fibres-sojade.jpg"},{"name":"Boisson Soja Concentrée à Diluer - 50cl","price":"1,97 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/boisson-soja-concentree-sojade-15846.html","image":"https://www.officialveganshop.com/21116-home_default/boisson-soja-concentree-sojade.jpg"},{"name":"Boisson Soja Nature Bio - 1L","price":"2,19 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/boisson-soja-nature-lima-1l-8713.html","image":"https://www.officialveganshop.com/17859-home_default/boisson-soja-nature-lima-1l.jpg"},{"name":"Seitan Steak au Froment avec Sauce Soja - 300g","price":"9,32 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/seitan-steak-bertyn-froment-300g-9670.html","image":"https://www.officialveganshop.com/3685-home_default/seitan-steak-bertyn-froment-300g.jpg"},{"name":"Boisson à l’Avoine - Barista Edition - 1L","price":"2,99 €","store":"OfficialVeganShop","url":"https://www.officialveganshop.com/oatly-barista-edition-avoine-1l-10626.html","image":"https://www.officialveganshop.com/9050-home_default/oatly-barista-edition-avoine-1l.jpg"}]}]}
+{
+    "isDish": true,
+    "name": "Raclette",
+    "items": [
+        {
+            "original": "Fromage à raclette",
+            "alternative": "Fromage Raclette",
+            "links": []
+        },
+        {
+            "original": "Charcuterie",
+            "alternative": "Tranches Végétales",
+            "links": []
+        },
+        {
+            "original": "Pommes de terre",
+            "alternative": "Pommes de terre",
+            "links": []
+        }
+    ]
+}
