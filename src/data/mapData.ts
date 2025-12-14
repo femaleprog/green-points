@@ -1,15 +1,16 @@
 import { Restaurant, GroceryStore } from '@/types';
+import GreenBurgerImg from '@/assets/products/green-burger.jpg';
 
 export const RESTAURANTS: Restaurant[] = [
     {
         "rewardsCount": 6,
-        "inventory": ["Acai Bowl","Tofu Curry","Vegan Cheeseburger","Cauliflower Wings","Poke Bowl"],
+        "inventory": ["Acai Bowl", "Tofu Curry", "Vegan Cheeseburger", "Cauliflower Wings", "Poke Bowl"],
         "id": "res1",
         "name": "Green Burger Kitchen",
         "rating": 4.8,
         "deliveryTime": "20-30 min",
         "deliveryFee": "2.99€",
-        "imageUrl": "https://images.unsplash.com/photo-1520072959219-c595dc8231e2?auto=format&fit=crop&q=80&w=400",
+        "imageUrl": GreenBurgerImg,
         "tags": [
             "Vegan",
             "Burgers",
@@ -20,7 +21,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Vegan Lasagna","Seitan Stir Fry","Tofu Curry","Vegan Hot Dog","Falafel Wrap"],
+        "inventory": ["Vegan Lasagna", "Seitan Stir Fry", "Tofu Curry", "Vegan Hot Dog", "Falafel Wrap"],
         "id": "res2",
         "name": "Veggie Bowl",
         "rating": 4.6,
@@ -37,7 +38,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Falafel Wrap","Acai Bowl","Lentil Soup","Vegan Cheeseburger","Seitan Stir Fry"],
+        "inventory": ["Falafel Wrap", "Acai Bowl", "Lentil Soup", "Vegan Cheeseburger", "Seitan Stir Fry"],
         "id": "res3",
         "name": "Pizza Verde",
         "rating": 4.5,
@@ -54,7 +55,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Lentil Soup","Vegan Tacos","Mushroom Risotto","Tofu Curry","Avocado Toast"],
+        "inventory": ["Lentil Soup", "Vegan Tacos", "Mushroom Risotto", "Tofu Curry", "Avocado Toast"],
         "id": "res4",
         "name": "Le Potager de Charlotte",
         "rating": 4.9,
@@ -71,7 +72,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Pad Thai Tofu","Vegan Tacos","Lentil Soup","Poke Bowl","Vegan Hot Dog"],
+        "inventory": ["Pad Thai Tofu", "Vegan Tacos", "Lentil Soup", "Poke Bowl", "Vegan Hot Dog"],
         "id": "res5",
         "name": "Wild & The Moon",
         "rating": 4.7,
@@ -88,7 +89,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Vegan Lasagna","Pad Thai Tofu","Vegan Nachos","Lentil Soup","Buddha Bowl"],
+        "inventory": ["Vegan Lasagna", "Pad Thai Tofu", "Vegan Nachos", "Lentil Soup", "Buddha Bowl"],
         "id": "res6",
         "name": "Jah Jah by Le Tricycle",
         "rating": 4.6,
@@ -105,7 +106,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Sweet Potato Fries","Avocado Toast","Vegan Lasagna","Vegan Cheeseburger","Vegan Tacos"],
+        "inventory": ["Sweet Potato Fries", "Avocado Toast", "Vegan Lasagna", "Vegan Cheeseburger", "Vegan Tacos"],
         "id": "res7",
         "name": "Hank Burger",
         "rating": 4.8,
@@ -122,7 +123,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Vegan Cheeseburger","Acai Bowl","Vegan Tacos","Lentil Soup","Sweet Potato Fries"],
+        "inventory": ["Vegan Cheeseburger", "Acai Bowl", "Vegan Tacos", "Lentil Soup", "Sweet Potato Fries"],
         "id": "res8",
         "name": "Soya",
         "rating": 4.5,
@@ -139,7 +140,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Buddha Bowl","Lentil Soup","Sweet Potato Fries","Tofu Curry","Poke Bowl"],
+        "inventory": ["Buddha Bowl", "Lentil Soup", "Sweet Potato Fries", "Tofu Curry", "Poke Bowl"],
         "id": "gen_res_0",
         "name": "Happy Burger",
         "rating": 3.9,
@@ -157,7 +158,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Quinoa Salad","Vegan Cheeseburger","Tofu Curry","Avocado Toast","Cauliflower Wings"],
+        "inventory": ["Quinoa Salad", "Vegan Cheeseburger", "Tofu Curry", "Avocado Toast", "Cauliflower Wings"],
         "id": "gen_res_1",
         "name": "Green Bistro",
         "rating": 3.8,
@@ -175,7 +176,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Cauliflower Wings","Vegan Cheeseburger","Sweet Potato Fries","Lentil Soup","Tofu Curry"],
+        "inventory": ["Cauliflower Wings", "Vegan Cheeseburger", "Sweet Potato Fries", "Lentil Soup", "Tofu Curry"],
         "id": "gen_res_2",
         "name": "Pure Delight",
         "rating": 3.9,
@@ -193,7 +194,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Quinoa Salad","Lentil Soup","Vegan Tacos","Tofu Curry","Buddha Bowl"],
+        "inventory": ["Quinoa Salad", "Lentil Soup", "Vegan Tacos", "Tofu Curry", "Buddha Bowl"],
         "id": "gen_res_3",
         "name": "Vigour Spot",
         "rating": 4.5,
@@ -211,7 +212,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Pad Thai Tofu","Tofu Curry","Vegan Nachos","Buddha Bowl","Sweet Potato Fries"],
+        "inventory": ["Pad Thai Tofu", "Tofu Curry", "Vegan Nachos", "Buddha Bowl", "Sweet Potato Fries"],
         "id": "gen_res_4",
         "name": "Leafy Table",
         "rating": 3.7,
@@ -229,7 +230,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Vegan Lasagna","Vegan Cheeseburger","Tofu Curry","Sweet Potato Fries","Lentil Soup"],
+        "inventory": ["Vegan Lasagna", "Vegan Cheeseburger", "Tofu Curry", "Sweet Potato Fries", "Lentil Soup"],
         "id": "gen_res_5",
         "name": "Vitality Bowl",
         "rating": 4.6,
@@ -247,7 +248,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Quinoa Salad","Seitan Stir Fry","Falafel Wrap","Vegan Tacos","Mushroom Risotto"],
+        "inventory": ["Quinoa Salad", "Seitan Stir Fry", "Falafel Wrap", "Vegan Tacos", "Mushroom Risotto"],
         "id": "gen_res_6",
         "name": "Bio Spot",
         "rating": 3.8,
@@ -265,7 +266,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Vegan Hot Dog","Sweet Potato Fries","Vegan Lasagna","Lentil Soup","Vegan Cheeseburger"],
+        "inventory": ["Vegan Hot Dog", "Sweet Potato Fries", "Vegan Lasagna", "Lentil Soup", "Vegan Cheeseburger"],
         "id": "gen_res_7",
         "name": "Fresh Burger",
         "rating": 4.5,
@@ -283,7 +284,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Vegan Pizza Royale","Avocado Toast","Seitan Stir Fry","Vegan Lasagna","Vegan Cheeseburger"],
+        "inventory": ["Vegan Pizza Royale", "Avocado Toast", "Seitan Stir Fry", "Vegan Lasagna", "Vegan Cheeseburger"],
         "id": "gen_res_8",
         "name": "Eco Spot",
         "rating": 3.6,
@@ -301,7 +302,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Vegan Pizza Royale","Lentil Soup","Falafel Wrap","Vegan Cheeseburger","Vegan Sushi"],
+        "inventory": ["Vegan Pizza Royale", "Lentil Soup", "Falafel Wrap", "Vegan Cheeseburger", "Vegan Sushi"],
         "id": "gen_res_9",
         "name": "Bio Kitchen",
         "rating": 4.8,
@@ -319,7 +320,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Buddha Bowl","Seitan Stir Fry","Vegan Lasagna","Cauliflower Wings","Pad Thai Tofu"],
+        "inventory": ["Buddha Bowl", "Seitan Stir Fry", "Vegan Lasagna", "Cauliflower Wings", "Pad Thai Tofu"],
         "id": "gen_res_10",
         "name": "Wild Eco Delight",
         "rating": 3.8,
@@ -337,7 +338,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Falafel Wrap","Vegan Sushi","Seitan Stir Fry","Cauliflower Wings","Vegan Lasagna"],
+        "inventory": ["Falafel Wrap", "Vegan Sushi", "Seitan Stir Fry", "Cauliflower Wings", "Vegan Lasagna"],
         "id": "gen_res_11",
         "name": "Cozy Pure Bistro",
         "rating": 4.7,
@@ -355,7 +356,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Poke Bowl","Vegan Cheeseburger","Acai Bowl","Vegan Sushi","Vegan Lasagna"],
+        "inventory": ["Poke Bowl", "Vegan Cheeseburger", "Acai Bowl", "Vegan Sushi", "Vegan Lasagna"],
         "id": "gen_res_12",
         "name": "Good Cafe",
         "rating": 4,
@@ -373,7 +374,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Vegan Cheeseburger","Vegan Nachos","Pad Thai Tofu","Poke Bowl","Cauliflower Wings"],
+        "inventory": ["Vegan Cheeseburger", "Vegan Nachos", "Pad Thai Tofu", "Poke Bowl", "Cauliflower Wings"],
         "id": "gen_res_13",
         "name": "Cozy Eco Garden",
         "rating": 4.5,
@@ -391,7 +392,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Vegan Tacos","Acai Bowl","Vegan Sushi","Falafel Wrap","Tofu Curry"],
+        "inventory": ["Vegan Tacos", "Acai Bowl", "Vegan Sushi", "Falafel Wrap", "Tofu Curry"],
         "id": "gen_res_14",
         "name": "Bio Kitchen",
         "rating": 4.9,
@@ -409,7 +410,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Vegan Cheeseburger","Lentil Soup","Mushroom Risotto","Tofu Curry","Vegan Nachos"],
+        "inventory": ["Vegan Cheeseburger", "Lentil Soup", "Mushroom Risotto", "Tofu Curry", "Vegan Nachos"],
         "id": "gen_res_15",
         "name": "Vigour Cafe",
         "rating": 3.6,
@@ -427,7 +428,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Cauliflower Wings","Avocado Toast","Vegan Nachos","Quinoa Salad","Vegan Lasagna"],
+        "inventory": ["Cauliflower Wings", "Avocado Toast", "Vegan Nachos", "Quinoa Salad", "Vegan Lasagna"],
         "id": "gen_res_16",
         "name": "Happy Burger",
         "rating": 4.4,
@@ -445,7 +446,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Quinoa Salad","Avocado Toast","Vegan Sushi","Vegan Nachos","Vegan Cheeseburger"],
+        "inventory": ["Quinoa Salad", "Avocado Toast", "Vegan Sushi", "Vegan Nachos", "Vegan Cheeseburger"],
         "id": "gen_res_17",
         "name": "Wild Good Haven",
         "rating": 4.6,
@@ -463,7 +464,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Vegan Pizza Royale","Mushroom Risotto","Acai Bowl","Buddha Bowl","Falafel Wrap"],
+        "inventory": ["Vegan Pizza Royale", "Mushroom Risotto", "Acai Bowl", "Buddha Bowl", "Falafel Wrap"],
         "id": "gen_res_18",
         "name": "Pure Burger",
         "rating": 4.1,
@@ -481,7 +482,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Poke Bowl","Acai Bowl","Sweet Potato Fries","Avocado Toast","Vegan Tacos"],
+        "inventory": ["Poke Bowl", "Acai Bowl", "Sweet Potato Fries", "Avocado Toast", "Vegan Tacos"],
         "id": "gen_res_19",
         "name": "Friendly Eco Bistro",
         "rating": 3.5,
@@ -499,7 +500,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Lentil Soup","Vegan Pizza Royale","Vegan Hot Dog","Sweet Potato Fries","Mushroom Risotto"],
+        "inventory": ["Lentil Soup", "Vegan Pizza Royale", "Vegan Hot Dog", "Sweet Potato Fries", "Mushroom Risotto"],
         "id": "gen_res_20",
         "name": "Bio Station",
         "rating": 3.8,
@@ -517,7 +518,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Poke Bowl","Sweet Potato Fries","Cauliflower Wings","Lentil Soup","Vegan Hot Dog"],
+        "inventory": ["Poke Bowl", "Sweet Potato Fries", "Cauliflower Wings", "Lentil Soup", "Vegan Hot Dog"],
         "id": "gen_res_21",
         "name": "Vegan Delight",
         "rating": 3.8,
@@ -535,7 +536,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Quinoa Salad","Vegan Cheeseburger","Vegan Nachos","Buddha Bowl","Mushroom Risotto"],
+        "inventory": ["Quinoa Salad", "Vegan Cheeseburger", "Vegan Nachos", "Buddha Bowl", "Mushroom Risotto"],
         "id": "gen_res_22",
         "name": "Cozy Earth Spot",
         "rating": 4.1,
@@ -553,7 +554,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Lentil Soup","Pad Thai Tofu","Vegan Nachos","Vegan Sushi","Vegan Pizza Royale"],
+        "inventory": ["Lentil Soup", "Pad Thai Tofu", "Vegan Nachos", "Vegan Sushi", "Vegan Pizza Royale"],
         "id": "gen_res_23",
         "name": "Green Kitchen",
         "rating": 5,
@@ -571,7 +572,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Vegan Cheeseburger","Buddha Bowl","Vegan Lasagna","Pad Thai Tofu","Mushroom Risotto"],
+        "inventory": ["Vegan Cheeseburger", "Buddha Bowl", "Vegan Lasagna", "Pad Thai Tofu", "Mushroom Risotto"],
         "id": "gen_res_24",
         "name": "Pure Bowl",
         "rating": 3.7,
@@ -589,7 +590,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Vegan Pizza Royale","Pad Thai Tofu","Seitan Stir Fry","Vegan Hot Dog","Avocado Toast"],
+        "inventory": ["Vegan Pizza Royale", "Pad Thai Tofu", "Seitan Stir Fry", "Vegan Hot Dog", "Avocado Toast"],
         "id": "gen_res_25",
         "name": "Fresh Delight",
         "rating": 4.8,
@@ -607,7 +608,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Vegan Tacos","Falafel Wrap","Pad Thai Tofu","Quinoa Salad","Acai Bowl"],
+        "inventory": ["Vegan Tacos", "Falafel Wrap", "Pad Thai Tofu", "Quinoa Salad", "Acai Bowl"],
         "id": "gen_res_26",
         "name": "Good Bowl",
         "rating": 3.7,
@@ -625,7 +626,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Vegan Lasagna","Mushroom Risotto","Vegan Cheeseburger","Vegan Nachos","Buddha Bowl"],
+        "inventory": ["Vegan Lasagna", "Mushroom Risotto", "Vegan Cheeseburger", "Vegan Nachos", "Buddha Bowl"],
         "id": "gen_res_27",
         "name": "Wild Plant Kitchen",
         "rating": 4.7,
@@ -643,7 +644,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Vegan Cheeseburger","Buddha Bowl","Vegan Lasagna","Vegan Nachos","Cauliflower Wings"],
+        "inventory": ["Vegan Cheeseburger", "Buddha Bowl", "Vegan Lasagna", "Vegan Nachos", "Cauliflower Wings"],
         "id": "gen_res_28",
         "name": "Leafy Burger",
         "rating": 4.9,
@@ -661,7 +662,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Falafel Wrap","Vegan Cheeseburger","Buddha Bowl","Vegan Lasagna","Vegan Pizza Royale"],
+        "inventory": ["Falafel Wrap", "Vegan Cheeseburger", "Buddha Bowl", "Vegan Lasagna", "Vegan Pizza Royale"],
         "id": "gen_res_29",
         "name": "Bio Cafe",
         "rating": 4.4,
@@ -679,7 +680,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Sweet Potato Fries","Falafel Wrap","Lentil Soup","Quinoa Salad","Avocado Toast"],
+        "inventory": ["Sweet Potato Fries", "Falafel Wrap", "Lentil Soup", "Quinoa Salad", "Avocado Toast"],
         "id": "gen_res_30",
         "name": "Fresh Station",
         "rating": 4.1,
@@ -697,7 +698,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Vegan Nachos","Falafel Wrap","Pad Thai Tofu","Vegan Pizza Royale","Seitan Stir Fry"],
+        "inventory": ["Vegan Nachos", "Falafel Wrap", "Pad Thai Tofu", "Vegan Pizza Royale", "Seitan Stir Fry"],
         "id": "gen_res_31",
         "name": "Grand Bio Table",
         "rating": 4.6,
@@ -715,7 +716,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Falafel Wrap","Mushroom Risotto","Buddha Bowl","Acai Bowl","Poke Bowl"],
+        "inventory": ["Falafel Wrap", "Mushroom Risotto", "Buddha Bowl", "Acai Bowl", "Poke Bowl"],
         "id": "gen_res_32",
         "name": "Vigour Oasis",
         "rating": 4.9,
@@ -733,7 +734,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Poke Bowl","Vegan Pizza Royale","Cauliflower Wings","Avocado Toast","Pad Thai Tofu"],
+        "inventory": ["Poke Bowl", "Vegan Pizza Royale", "Cauliflower Wings", "Avocado Toast", "Pad Thai Tofu"],
         "id": "gen_res_33",
         "name": "Fresh Spot",
         "rating": 4.6,
@@ -751,7 +752,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Avocado Toast","Vegan Sushi","Falafel Wrap","Cauliflower Wings","Sweet Potato Fries"],
+        "inventory": ["Avocado Toast", "Vegan Sushi", "Falafel Wrap", "Cauliflower Wings", "Sweet Potato Fries"],
         "id": "gen_res_34",
         "name": "Urban Green Bistro",
         "rating": 4.8,
@@ -769,7 +770,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Lentil Soup","Vegan Pizza Royale","Pad Thai Tofu","Vegan Lasagna","Buddha Bowl"],
+        "inventory": ["Lentil Soup", "Vegan Pizza Royale", "Pad Thai Tofu", "Vegan Lasagna", "Buddha Bowl"],
         "id": "gen_res_35",
         "name": "Good Haven",
         "rating": 4.1,
@@ -787,7 +788,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Vegan Pizza Royale","Sweet Potato Fries","Vegan Nachos","Tofu Curry","Poke Bowl"],
+        "inventory": ["Vegan Pizza Royale", "Sweet Potato Fries", "Vegan Nachos", "Tofu Curry", "Poke Bowl"],
         "id": "gen_res_36",
         "name": "Bio Table",
         "rating": 4,
@@ -805,7 +806,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Vegan Tacos","Quinoa Salad","Vegan Cheeseburger","Pad Thai Tofu","Vegan Nachos"],
+        "inventory": ["Vegan Tacos", "Quinoa Salad", "Vegan Cheeseburger", "Pad Thai Tofu", "Vegan Nachos"],
         "id": "gen_res_37",
         "name": "Good Kitchen",
         "rating": 4.2,
@@ -823,7 +824,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Vegan Cheeseburger","Vegan Nachos","Seitan Stir Fry","Poke Bowl","Sweet Potato Fries"],
+        "inventory": ["Vegan Cheeseburger", "Vegan Nachos", "Seitan Stir Fry", "Poke Bowl", "Sweet Potato Fries"],
         "id": "gen_res_38",
         "name": "Vegan Bowl",
         "rating": 4.7,
@@ -841,7 +842,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Mushroom Risotto","Falafel Wrap","Quinoa Salad","Sweet Potato Fries","Buddha Bowl"],
+        "inventory": ["Mushroom Risotto", "Falafel Wrap", "Quinoa Salad", "Sweet Potato Fries", "Buddha Bowl"],
         "id": "gen_res_39",
         "name": "Vitality Garden",
         "rating": 3.9,
@@ -859,7 +860,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Vegan Pizza Royale","Tofu Curry","Quinoa Salad","Poke Bowl","Sweet Potato Fries"],
+        "inventory": ["Vegan Pizza Royale", "Tofu Curry", "Quinoa Salad", "Poke Bowl", "Sweet Potato Fries"],
         "id": "gen_res_40",
         "name": "Little Vigour Haven",
         "rating": 3.9,
@@ -877,7 +878,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Sweet Potato Fries","Cauliflower Wings","Quinoa Salad","Seitan Stir Fry","Vegan Nachos"],
+        "inventory": ["Sweet Potato Fries", "Cauliflower Wings", "Quinoa Salad", "Seitan Stir Fry", "Vegan Nachos"],
         "id": "gen_res_41",
         "name": "Vegan Haven",
         "rating": 4.2,
@@ -895,7 +896,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Sweet Potato Fries","Vegan Cheeseburger","Mushroom Risotto","Vegan Lasagna","Avocado Toast"],
+        "inventory": ["Sweet Potato Fries", "Vegan Cheeseburger", "Mushroom Risotto", "Vegan Lasagna", "Avocado Toast"],
         "id": "gen_res_42",
         "name": "Urban Pure Bistro",
         "rating": 4.2,
@@ -913,7 +914,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Buddha Bowl","Vegan Hot Dog","Acai Bowl","Vegan Cheeseburger","Mushroom Risotto"],
+        "inventory": ["Buddha Bowl", "Vegan Hot Dog", "Acai Bowl", "Vegan Cheeseburger", "Mushroom Risotto"],
         "id": "gen_res_43",
         "name": "Fresh Bowl",
         "rating": 3.5,
@@ -931,7 +932,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Quinoa Salad","Tofu Curry","Acai Bowl","Vegan Hot Dog","Lentil Soup"],
+        "inventory": ["Quinoa Salad", "Tofu Curry", "Acai Bowl", "Vegan Hot Dog", "Lentil Soup"],
         "id": "gen_res_44",
         "name": "Green Burger",
         "rating": 4.5,
@@ -949,7 +950,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Mushroom Risotto","Falafel Wrap","Tofu Curry","Vegan Tacos","Acai Bowl"],
+        "inventory": ["Mushroom Risotto", "Falafel Wrap", "Tofu Curry", "Vegan Tacos", "Acai Bowl"],
         "id": "gen_res_45",
         "name": "Happy Bowl",
         "rating": 3.5,
@@ -967,7 +968,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Seitan Stir Fry","Buddha Bowl","Lentil Soup","Falafel Wrap","Cauliflower Wings"],
+        "inventory": ["Seitan Stir Fry", "Buddha Bowl", "Lentil Soup", "Falafel Wrap", "Cauliflower Wings"],
         "id": "gen_res_46",
         "name": "Green Kitchen",
         "rating": 4,
@@ -985,7 +986,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Vegan Pizza Royale","Buddha Bowl","Mushroom Risotto","Vegan Cheeseburger","Vegan Nachos"],
+        "inventory": ["Vegan Pizza Royale", "Buddha Bowl", "Mushroom Risotto", "Vegan Cheeseburger", "Vegan Nachos"],
         "id": "gen_res_47",
         "name": "Friendly Vegan Bistro",
         "rating": 4.8,
@@ -1003,7 +1004,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Poke Bowl","Vegan Hot Dog","Vegan Tacos","Vegan Cheeseburger","Pad Thai Tofu"],
+        "inventory": ["Poke Bowl", "Vegan Hot Dog", "Vegan Tacos", "Vegan Cheeseburger", "Pad Thai Tofu"],
         "id": "gen_res_48",
         "name": "Eco Burger",
         "rating": 4.9,
@@ -1021,7 +1022,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Lentil Soup","Avocado Toast","Poke Bowl","Vegan Sushi","Vegan Pizza Royale"],
+        "inventory": ["Lentil Soup", "Avocado Toast", "Poke Bowl", "Vegan Sushi", "Vegan Pizza Royale"],
         "id": "gen_res_49",
         "name": "Friendly Bio Station",
         "rating": 4.6,
@@ -1039,7 +1040,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Vegan Pizza Royale","Buddha Bowl","Falafel Wrap","Quinoa Salad","Vegan Hot Dog"],
+        "inventory": ["Vegan Pizza Royale", "Buddha Bowl", "Falafel Wrap", "Quinoa Salad", "Vegan Hot Dog"],
         "id": "gen_res_50",
         "name": "Root Bowl",
         "rating": 4.8,
@@ -1057,7 +1058,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Vegan Cheeseburger","Falafel Wrap","Vegan Nachos","Acai Bowl","Cauliflower Wings"],
+        "inventory": ["Vegan Cheeseburger", "Falafel Wrap", "Vegan Nachos", "Acai Bowl", "Cauliflower Wings"],
         "id": "gen_res_51",
         "name": "Vitality Spot",
         "rating": 4.5,
@@ -1075,7 +1076,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Vegan Nachos","Mushroom Risotto","Vegan Cheeseburger","Buddha Bowl","Poke Bowl"],
+        "inventory": ["Vegan Nachos", "Mushroom Risotto", "Vegan Cheeseburger", "Buddha Bowl", "Poke Bowl"],
         "id": "gen_res_52",
         "name": "Leafy Table",
         "rating": 4.3,
@@ -1093,7 +1094,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Falafel Wrap","Vegan Cheeseburger","Acai Bowl","Tofu Curry","Cauliflower Wings"],
+        "inventory": ["Falafel Wrap", "Vegan Cheeseburger", "Acai Bowl", "Tofu Curry", "Cauliflower Wings"],
         "id": "gen_res_53",
         "name": "Good Eatery",
         "rating": 4.1,
@@ -1111,7 +1112,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Cauliflower Wings","Vegan Sushi","Vegan Pizza Royale","Falafel Wrap","Vegan Hot Dog"],
+        "inventory": ["Cauliflower Wings", "Vegan Sushi", "Vegan Pizza Royale", "Falafel Wrap", "Vegan Hot Dog"],
         "id": "gen_res_54",
         "name": "Friendly Fresh Delight",
         "rating": 4.9,
@@ -1129,7 +1130,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Falafel Wrap","Tofu Curry","Vegan Nachos","Mushroom Risotto","Vegan Cheeseburger"],
+        "inventory": ["Falafel Wrap", "Tofu Curry", "Vegan Nachos", "Mushroom Risotto", "Vegan Cheeseburger"],
         "id": "gen_res_55",
         "name": "Good Haven",
         "rating": 4.9,
@@ -1147,7 +1148,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Avocado Toast","Mushroom Risotto","Lentil Soup","Vegan Pizza Royale","Falafel Wrap"],
+        "inventory": ["Avocado Toast", "Mushroom Risotto", "Lentil Soup", "Vegan Pizza Royale", "Falafel Wrap"],
         "id": "gen_res_56",
         "name": "Root Table",
         "rating": 4.8,
@@ -1165,7 +1166,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Vegan Lasagna","Vegan Sushi","Vegan Cheeseburger","Vegan Hot Dog","Mushroom Risotto"],
+        "inventory": ["Vegan Lasagna", "Vegan Sushi", "Vegan Cheeseburger", "Vegan Hot Dog", "Mushroom Risotto"],
         "id": "gen_res_57",
         "name": "Sustainable Vigour Delight",
         "rating": 4.6,
@@ -1183,7 +1184,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Pad Thai Tofu","Mushroom Risotto","Vegan Hot Dog","Vegan Pizza Royale","Poke Bowl"],
+        "inventory": ["Pad Thai Tofu", "Mushroom Risotto", "Vegan Hot Dog", "Vegan Pizza Royale", "Poke Bowl"],
         "id": "gen_res_58",
         "name": "Wild Leafy Garden",
         "rating": 4.3,
@@ -1201,7 +1202,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Vegan Nachos","Mushroom Risotto","Vegan Sushi","Seitan Stir Fry","Vegan Pizza Royale"],
+        "inventory": ["Vegan Nachos", "Mushroom Risotto", "Vegan Sushi", "Seitan Stir Fry", "Vegan Pizza Royale"],
         "id": "gen_res_59",
         "name": "Urban Plant Cafe",
         "rating": 4.2,
@@ -1219,7 +1220,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Mushroom Risotto","Buddha Bowl","Acai Bowl","Poke Bowl","Avocado Toast"],
+        "inventory": ["Mushroom Risotto", "Buddha Bowl", "Acai Bowl", "Poke Bowl", "Avocado Toast"],
         "id": "gen_res_60",
         "name": "Delicious Good Spot",
         "rating": 4,
@@ -1237,7 +1238,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Sweet Potato Fries","Quinoa Salad","Cauliflower Wings","Vegan Tacos","Vegan Nachos"],
+        "inventory": ["Sweet Potato Fries", "Quinoa Salad", "Cauliflower Wings", "Vegan Tacos", "Vegan Nachos"],
         "id": "gen_res_61",
         "name": "Happy Bistro",
         "rating": 4.6,
@@ -1255,7 +1256,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Seitan Stir Fry","Falafel Wrap","Vegan Sushi","Sweet Potato Fries","Avocado Toast"],
+        "inventory": ["Seitan Stir Fry", "Falafel Wrap", "Vegan Sushi", "Sweet Potato Fries", "Avocado Toast"],
         "id": "gen_res_62",
         "name": "Delicious Vigour Eatery",
         "rating": 3.6,
@@ -1273,7 +1274,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Pad Thai Tofu","Vegan Tacos","Lentil Soup","Falafel Wrap","Vegan Pizza Royale"],
+        "inventory": ["Pad Thai Tofu", "Vegan Tacos", "Lentil Soup", "Falafel Wrap", "Vegan Pizza Royale"],
         "id": "gen_res_63",
         "name": "Modern Pure Station",
         "rating": 4.9,
@@ -1291,7 +1292,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Falafel Wrap","Vegan Hot Dog","Vegan Tacos","Pad Thai Tofu","Acai Bowl"],
+        "inventory": ["Falafel Wrap", "Vegan Hot Dog", "Vegan Tacos", "Pad Thai Tofu", "Acai Bowl"],
         "id": "gen_res_64",
         "name": "Eco Haven",
         "rating": 4.3,
@@ -1309,7 +1310,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Vegan Tacos","Tofu Curry","Cauliflower Wings","Vegan Pizza Royale","Vegan Sushi"],
+        "inventory": ["Vegan Tacos", "Tofu Curry", "Cauliflower Wings", "Vegan Pizza Royale", "Vegan Sushi"],
         "id": "gen_res_65",
         "name": "Sustainable Vegan Station",
         "rating": 4.2,
@@ -1327,7 +1328,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Mushroom Risotto","Vegan Pizza Royale","Vegan Hot Dog","Pad Thai Tofu","Seitan Stir Fry"],
+        "inventory": ["Mushroom Risotto", "Vegan Pizza Royale", "Vegan Hot Dog", "Pad Thai Tofu", "Seitan Stir Fry"],
         "id": "gen_res_66",
         "name": "Fresh Delight",
         "rating": 4,
@@ -1345,7 +1346,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Lentil Soup","Seitan Stir Fry","Mushroom Risotto","Vegan Cheeseburger","Vegan Tacos"],
+        "inventory": ["Lentil Soup", "Seitan Stir Fry", "Mushroom Risotto", "Vegan Cheeseburger", "Vegan Tacos"],
         "id": "gen_res_67",
         "name": "Vitality Cafe",
         "rating": 4.4,
@@ -1363,7 +1364,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Buddha Bowl","Pad Thai Tofu","Sweet Potato Fries","Vegan Sushi","Vegan Nachos"],
+        "inventory": ["Buddha Bowl", "Pad Thai Tofu", "Sweet Potato Fries", "Vegan Sushi", "Vegan Nachos"],
         "id": "gen_res_68",
         "name": "Vigour Haven",
         "rating": 3.6,
@@ -1381,7 +1382,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Avocado Toast","Pad Thai Tofu","Buddha Bowl","Tofu Curry","Quinoa Salad"],
+        "inventory": ["Avocado Toast", "Pad Thai Tofu", "Buddha Bowl", "Tofu Curry", "Quinoa Salad"],
         "id": "gen_res_69",
         "name": "Plant Bowl",
         "rating": 4.6,
@@ -1399,7 +1400,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Pad Thai Tofu","Falafel Wrap","Lentil Soup","Acai Bowl","Sweet Potato Fries"],
+        "inventory": ["Pad Thai Tofu", "Falafel Wrap", "Lentil Soup", "Acai Bowl", "Sweet Potato Fries"],
         "id": "gen_res_70",
         "name": "Good Delight",
         "rating": 5,
@@ -1417,7 +1418,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Pad Thai Tofu","Vegan Tacos","Vegan Lasagna","Avocado Toast","Cauliflower Wings"],
+        "inventory": ["Pad Thai Tofu", "Vegan Tacos", "Vegan Lasagna", "Avocado Toast", "Cauliflower Wings"],
         "id": "gen_res_71",
         "name": "Fresh Delight",
         "rating": 4.8,
@@ -1435,7 +1436,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Buddha Bowl","Vegan Cheeseburger","Pad Thai Tofu","Lentil Soup","Vegan Lasagna"],
+        "inventory": ["Buddha Bowl", "Vegan Cheeseburger", "Pad Thai Tofu", "Lentil Soup", "Vegan Lasagna"],
         "id": "gen_res_72",
         "name": "Little Green Station",
         "rating": 3.8,
@@ -1453,7 +1454,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Vegan Tacos","Vegan Hot Dog","Pad Thai Tofu","Mushroom Risotto","Tofu Curry"],
+        "inventory": ["Vegan Tacos", "Vegan Hot Dog", "Pad Thai Tofu", "Mushroom Risotto", "Tofu Curry"],
         "id": "gen_res_73",
         "name": "Urban Vegan Delight",
         "rating": 4.6,
@@ -1471,7 +1472,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Acai Bowl","Vegan Tacos","Vegan Hot Dog","Cauliflower Wings","Seitan Stir Fry"],
+        "inventory": ["Acai Bowl", "Vegan Tacos", "Vegan Hot Dog", "Cauliflower Wings", "Seitan Stir Fry"],
         "id": "gen_res_74",
         "name": "Happy Spot",
         "rating": 4.9,
@@ -1489,7 +1490,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Sweet Potato Fries","Lentil Soup","Quinoa Salad","Seitan Stir Fry","Tofu Curry"],
+        "inventory": ["Sweet Potato Fries", "Lentil Soup", "Quinoa Salad", "Seitan Stir Fry", "Tofu Curry"],
         "id": "gen_res_75",
         "name": "Bio Kitchen",
         "rating": 4.8,
@@ -1507,7 +1508,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Buddha Bowl","Vegan Cheeseburger","Vegan Hot Dog","Vegan Nachos","Seitan Stir Fry"],
+        "inventory": ["Buddha Bowl", "Vegan Cheeseburger", "Vegan Hot Dog", "Vegan Nachos", "Seitan Stir Fry"],
         "id": "gen_res_76",
         "name": "Vigour Spot",
         "rating": 4.3,
@@ -1525,7 +1526,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Vegan Cheeseburger","Vegan Nachos","Sweet Potato Fries","Avocado Toast","Vegan Tacos"],
+        "inventory": ["Vegan Cheeseburger", "Vegan Nachos", "Sweet Potato Fries", "Avocado Toast", "Vegan Tacos"],
         "id": "gen_res_77",
         "name": "Vitality Burger",
         "rating": 4.8,
@@ -1543,7 +1544,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Lentil Soup","Quinoa Salad","Pad Thai Tofu","Seitan Stir Fry","Sweet Potato Fries"],
+        "inventory": ["Lentil Soup", "Quinoa Salad", "Pad Thai Tofu", "Seitan Stir Fry", "Sweet Potato Fries"],
         "id": "gen_res_78",
         "name": "Fresh Eatery",
         "rating": 4.4,
@@ -1561,7 +1562,7 @@ export const RESTAURANTS: Restaurant[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Vegan Pizza Royale","Vegan Tacos","Mushroom Risotto","Vegan Nachos","Avocado Toast"],
+        "inventory": ["Vegan Pizza Royale", "Vegan Tacos", "Mushroom Risotto", "Vegan Nachos", "Avocado Toast"],
         "id": "gen_res_79",
         "name": "Vigour Cafe",
         "rating": 4.1,
@@ -1582,7 +1583,7 @@ export const RESTAURANTS: Restaurant[] = [
 export const GROCERY_STORES: GroceryStore[] = [
     {
         "rewardsCount": 5,
-        "inventory": ["Hummus","Heura Chicken","Oatley Barista","Violife Cheese","Tofu Rossy"],
+        "inventory": ["Hummus", "Heura Chicken", "Oatley Barista", "Violife Cheese", "Tofu Rossy"],
         "id": "gs1",
         "name": "Bio c' Bon",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -1596,7 +1597,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Alpro Milk","Heura Chicken","Vegan Mayo","Nutritional Yeast","Tofu Rossy"],
+        "inventory": ["Alpro Milk", "Heura Chicken", "Vegan Mayo", "Nutritional Yeast", "Tofu Rossy"],
         "id": "gs2",
         "name": "Naturalia",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -1610,7 +1611,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Heura Chicken","Hummus","Rice Milk","Violife Cheese","Seitan steak"],
+        "inventory": ["Heura Chicken", "Hummus", "Rice Milk", "Violife Cheese", "Seitan steak"],
         "id": "gs3",
         "name": "Carrefour Bio",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -1623,7 +1624,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Beyond Meat","Vegan Pizza","Nutritional Yeast","Rice Milk","Lentils"],
+        "inventory": ["Beyond Meat", "Vegan Pizza", "Nutritional Yeast", "Rice Milk", "Lentils"],
         "id": "gs4",
         "name": "Biocoop",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -1637,7 +1638,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Heura Chicken","Falafel Mix","Tempeh","Beyond Meat","Vegan Pizza"],
+        "inventory": ["Heura Chicken", "Falafel Mix", "Tempeh", "Beyond Meat", "Vegan Pizza"],
         "id": "gs5",
         "name": "La Vie Claire",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -1651,7 +1652,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Violife Cheese","Beyond Meat","Oatley Barista","Seitan steak","Heura Chicken"],
+        "inventory": ["Violife Cheese", "Beyond Meat", "Oatley Barista", "Seitan steak", "Heura Chicken"],
         "id": "gs6",
         "name": "Naturalia Vegan",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -1665,7 +1666,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Falafel Mix","Violife Cheese","Alpro Milk","Dark Chocolate","Vegan Pizza"],
+        "inventory": ["Falafel Mix", "Violife Cheese", "Alpro Milk", "Dark Chocolate", "Vegan Pizza"],
         "id": "gen_gs_0",
         "name": "Eco Shop",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -1679,7 +1680,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Heura Chicken","Beyond Meat","Dark Chocolate","Vegan Cookies","Lentils"],
+        "inventory": ["Heura Chicken", "Beyond Meat", "Dark Chocolate", "Vegan Cookies", "Lentils"],
         "id": "gen_gs_1",
         "name": "Magasin Sustainable",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -1693,7 +1694,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Chickpeas","Falafel Mix","Tofu Rossy","Tempeh","Alpro Milk"],
+        "inventory": ["Chickpeas", "Falafel Mix", "Tofu Rossy", "Tempeh", "Alpro Milk"],
         "id": "gen_gs_2",
         "name": "Magasin Modern",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -1707,7 +1708,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Vegan Cookies","Hummus","Rice Milk","Dark Chocolate","Tempeh"],
+        "inventory": ["Vegan Cookies", "Hummus", "Rice Milk", "Dark Chocolate", "Tempeh"],
         "id": "gen_gs_3",
         "name": "Fresh Market",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -1721,7 +1722,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Violife Cheese","Dark Chocolate","Nutritional Yeast","Tempeh","Alpro Milk"],
+        "inventory": ["Violife Cheese", "Dark Chocolate", "Nutritional Yeast", "Tempeh", "Alpro Milk"],
         "id": "gen_gs_4",
         "name": "Urban Farm",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -1735,7 +1736,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Falafel Mix","Rice Milk","Lentils","Tofu Rossy","Seitan steak"],
+        "inventory": ["Falafel Mix", "Rice Milk", "Lentils", "Tofu Rossy", "Seitan steak"],
         "id": "gen_gs_5",
         "name": "Magasin Sustainable",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -1749,7 +1750,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Hummus","Vegan Cookies","Nutritional Yeast","Tempeh","Tofu Rossy"],
+        "inventory": ["Hummus", "Vegan Cookies", "Nutritional Yeast", "Tempeh", "Tofu Rossy"],
         "id": "gen_gs_6",
         "name": "Magasin Cozy",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -1763,7 +1764,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Violife Cheese","Tempeh","Lentils","Vegan Cookies","Dark Chocolate"],
+        "inventory": ["Violife Cheese", "Tempeh", "Lentils", "Vegan Cookies", "Dark Chocolate"],
         "id": "gen_gs_7",
         "name": "Nature Store",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -1777,7 +1778,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Heura Chicken","Vegan Cookies","Beyond Meat","Alpro Milk","Violife Cheese"],
+        "inventory": ["Heura Chicken", "Vegan Cookies", "Beyond Meat", "Alpro Milk", "Violife Cheese"],
         "id": "gen_gs_8",
         "name": "Magasin Friendly",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -1791,7 +1792,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Tofu Rossy","Oatley Barista","Vegan Mayo","Quinoa","Seitan steak"],
+        "inventory": ["Tofu Rossy", "Oatley Barista", "Vegan Mayo", "Quinoa", "Seitan steak"],
         "id": "gen_gs_9",
         "name": "Magasin Organic",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -1805,7 +1806,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Beyond Meat","Tempeh","Quinoa","Chickpeas","Heura Chicken"],
+        "inventory": ["Beyond Meat", "Tempeh", "Quinoa", "Chickpeas", "Heura Chicken"],
         "id": "gen_gs_10",
         "name": "Magasin Organic",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -1819,7 +1820,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Hummus","Almond Yogurt","Tofu Rossy","Nutritional Yeast","Heura Chicken"],
+        "inventory": ["Hummus", "Almond Yogurt", "Tofu Rossy", "Nutritional Yeast", "Heura Chicken"],
         "id": "gen_gs_11",
         "name": "Magasin Cozy",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -1833,7 +1834,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Tempeh","Almond Yogurt","Falafel Mix","Nutritional Yeast","Quinoa"],
+        "inventory": ["Tempeh", "Almond Yogurt", "Falafel Mix", "Nutritional Yeast", "Quinoa"],
         "id": "gen_gs_12",
         "name": "Magasin Cozy",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -1847,7 +1848,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Nutritional Yeast","Dark Chocolate","Seitan steak","Heura Chicken","Chickpeas"],
+        "inventory": ["Nutritional Yeast", "Dark Chocolate", "Seitan steak", "Heura Chicken", "Chickpeas"],
         "id": "gen_gs_13",
         "name": "Magasin Delicious",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -1861,7 +1862,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Violife Cheese","Rice Milk","Heura Chicken","Tofu Rossy","Oatley Barista"],
+        "inventory": ["Violife Cheese", "Rice Milk", "Heura Chicken", "Tofu Rossy", "Oatley Barista"],
         "id": "gen_gs_14",
         "name": "Magasin Friendly",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -1875,7 +1876,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Beyond Meat","Tempeh","Lentils","Hummus","Alpro Milk"],
+        "inventory": ["Beyond Meat", "Tempeh", "Lentils", "Hummus", "Alpro Milk"],
         "id": "gen_gs_15",
         "name": "Magasin Wild",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -1889,7 +1890,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Oatley Barista","Lentils","Violife Cheese","Vegan Mayo","Nutritional Yeast"],
+        "inventory": ["Oatley Barista", "Lentils", "Violife Cheese", "Vegan Mayo", "Nutritional Yeast"],
         "id": "gen_gs_16",
         "name": "Green Grocer",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -1903,7 +1904,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Tofu Rossy","Almond Yogurt","Vegan Cookies","Heura Chicken","Falafel Mix"],
+        "inventory": ["Tofu Rossy", "Almond Yogurt", "Vegan Cookies", "Heura Chicken", "Falafel Mix"],
         "id": "gen_gs_17",
         "name": "Urban Farm",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -1917,7 +1918,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Vegan Pizza","Hummus","Vegan Mayo","Tempeh","Nutritional Yeast"],
+        "inventory": ["Vegan Pizza", "Hummus", "Vegan Mayo", "Tempeh", "Nutritional Yeast"],
         "id": "gen_gs_18",
         "name": "Daily Bio",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -1931,7 +1932,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Violife Cheese","Lentils","Falafel Mix","Rice Milk","Almond Yogurt"],
+        "inventory": ["Violife Cheese", "Lentils", "Falafel Mix", "Rice Milk", "Almond Yogurt"],
         "id": "gen_gs_19",
         "name": "Magasin Secret",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -1945,7 +1946,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Dark Chocolate","Heura Chicken","Hummus","Seitan steak","Beyond Meat"],
+        "inventory": ["Dark Chocolate", "Heura Chicken", "Hummus", "Seitan steak", "Beyond Meat"],
         "id": "gen_gs_20",
         "name": "Magasin Little",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -1959,7 +1960,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Vegan Mayo","Violife Cheese","Tempeh","Tofu Rossy","Hummus"],
+        "inventory": ["Vegan Mayo", "Violife Cheese", "Tempeh", "Tofu Rossy", "Hummus"],
         "id": "gen_gs_21",
         "name": "Magasin Cozy",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -1973,7 +1974,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Seitan steak","Chickpeas","Violife Cheese","Dark Chocolate","Nutritional Yeast"],
+        "inventory": ["Seitan steak", "Chickpeas", "Violife Cheese", "Dark Chocolate", "Nutritional Yeast"],
         "id": "gen_gs_22",
         "name": "Magasin Cozy",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -1987,7 +1988,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Violife Cheese","Vegan Mayo","Falafel Mix","Chickpeas","Tempeh"],
+        "inventory": ["Violife Cheese", "Vegan Mayo", "Falafel Mix", "Chickpeas", "Tempeh"],
         "id": "gen_gs_23",
         "name": "Magasin Little",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -2001,7 +2002,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Alpro Milk","Violife Cheese","Vegan Cookies","Nutritional Yeast","Oatley Barista"],
+        "inventory": ["Alpro Milk", "Violife Cheese", "Vegan Cookies", "Nutritional Yeast", "Oatley Barista"],
         "id": "gen_gs_24",
         "name": "Magasin Urban",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -2015,7 +2016,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Lentils","Almond Yogurt","Vegan Mayo","Tofu Rossy","Violife Cheese"],
+        "inventory": ["Lentils", "Almond Yogurt", "Vegan Mayo", "Tofu Rossy", "Violife Cheese"],
         "id": "gen_gs_25",
         "name": "Magasin Friendly",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -2029,7 +2030,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Violife Cheese","Beyond Meat","Nutritional Yeast","Quinoa","Tempeh"],
+        "inventory": ["Violife Cheese", "Beyond Meat", "Nutritional Yeast", "Quinoa", "Tempeh"],
         "id": "gen_gs_26",
         "name": "Magasin Wild",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -2043,7 +2044,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Hummus","Heura Chicken","Lentils","Vegan Mayo","Tempeh"],
+        "inventory": ["Hummus", "Heura Chicken", "Lentils", "Vegan Mayo", "Tempeh"],
         "id": "gen_gs_27",
         "name": "Magasin Wild",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -2057,7 +2058,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Tempeh","Almond Yogurt","Rice Milk","Beyond Meat","Vegan Pizza"],
+        "inventory": ["Tempeh", "Almond Yogurt", "Rice Milk", "Beyond Meat", "Vegan Pizza"],
         "id": "gen_gs_28",
         "name": "Magasin Grand",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -2071,7 +2072,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Heura Chicken","Rice Milk","Tempeh","Lentils","Nutritional Yeast"],
+        "inventory": ["Heura Chicken", "Rice Milk", "Tempeh", "Lentils", "Nutritional Yeast"],
         "id": "gen_gs_29",
         "name": "Eco Shop",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -2085,7 +2086,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Heura Chicken","Beyond Meat","Alpro Milk","Vegan Cookies","Chickpeas"],
+        "inventory": ["Heura Chicken", "Beyond Meat", "Alpro Milk", "Vegan Cookies", "Chickpeas"],
         "id": "gen_gs_30",
         "name": "Magasin Friendly",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -2099,7 +2100,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Heura Chicken","Falafel Mix","Vegan Mayo","Quinoa","Nutritional Yeast"],
+        "inventory": ["Heura Chicken", "Falafel Mix", "Vegan Mayo", "Quinoa", "Nutritional Yeast"],
         "id": "gen_gs_31",
         "name": "Magasin Sustainable",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -2113,7 +2114,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Vegan Mayo","Dark Chocolate","Tempeh","Falafel Mix","Beyond Meat"],
+        "inventory": ["Vegan Mayo", "Dark Chocolate", "Tempeh", "Falafel Mix", "Beyond Meat"],
         "id": "gen_gs_32",
         "name": "Magasin Urban",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -2127,7 +2128,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Hummus","Tempeh","Vegan Cookies","Chickpeas","Vegan Pizza"],
+        "inventory": ["Hummus", "Tempeh", "Vegan Cookies", "Chickpeas", "Vegan Pizza"],
         "id": "gen_gs_33",
         "name": "Magasin Wild",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -2141,7 +2142,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Quinoa","Tempeh","Oatley Barista","Vegan Pizza","Nutritional Yeast"],
+        "inventory": ["Quinoa", "Tempeh", "Oatley Barista", "Vegan Pizza", "Nutritional Yeast"],
         "id": "gen_gs_34",
         "name": "Magasin Modern",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -2155,7 +2156,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Tempeh","Alpro Milk","Nutritional Yeast","Falafel Mix","Seitan steak"],
+        "inventory": ["Tempeh", "Alpro Milk", "Nutritional Yeast", "Falafel Mix", "Seitan steak"],
         "id": "gen_gs_35",
         "name": "Vegan Mart",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -2169,7 +2170,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Hummus","Beyond Meat","Chickpeas","Tofu Rossy","Nutritional Yeast"],
+        "inventory": ["Hummus", "Beyond Meat", "Chickpeas", "Tofu Rossy", "Nutritional Yeast"],
         "id": "gen_gs_36",
         "name": "Eco Shop",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -2183,7 +2184,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Vegan Cookies","Oatley Barista","Heura Chicken","Nutritional Yeast","Quinoa"],
+        "inventory": ["Vegan Cookies", "Oatley Barista", "Heura Chicken", "Nutritional Yeast", "Quinoa"],
         "id": "gen_gs_37",
         "name": "Green Grocer",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -2197,7 +2198,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Tempeh","Vegan Mayo","Violife Cheese","Tofu Rossy","Alpro Milk"],
+        "inventory": ["Tempeh", "Vegan Mayo", "Violife Cheese", "Tofu Rossy", "Alpro Milk"],
         "id": "gen_gs_38",
         "name": "Vegan Mart",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -2211,7 +2212,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Hummus","Chickpeas","Beyond Meat","Seitan steak","Lentils"],
+        "inventory": ["Hummus", "Chickpeas", "Beyond Meat", "Seitan steak", "Lentils"],
         "id": "gen_gs_39",
         "name": "Urban Farm",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -2225,7 +2226,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Quinoa","Alpro Milk","Tempeh","Violife Cheese","Vegan Mayo"],
+        "inventory": ["Quinoa", "Alpro Milk", "Tempeh", "Violife Cheese", "Vegan Mayo"],
         "id": "gen_gs_40",
         "name": "Planet Organic",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -2239,7 +2240,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Tofu Rossy","Vegan Mayo","Falafel Mix","Nutritional Yeast","Lentils"],
+        "inventory": ["Tofu Rossy", "Vegan Mayo", "Falafel Mix", "Nutritional Yeast", "Lentils"],
         "id": "gen_gs_41",
         "name": "Magasin Little",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -2253,7 +2254,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 9,
-        "inventory": ["Vegan Cookies","Tempeh","Hummus","Nutritional Yeast","Lentils"],
+        "inventory": ["Vegan Cookies", "Tempeh", "Hummus", "Nutritional Yeast", "Lentils"],
         "id": "gen_gs_42",
         "name": "Urban Farm",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -2267,7 +2268,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Hummus","Lentils","Vegan Pizza","Violife Cheese","Alpro Milk"],
+        "inventory": ["Hummus", "Lentils", "Vegan Pizza", "Violife Cheese", "Alpro Milk"],
         "id": "gen_gs_43",
         "name": "Green Grocer",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -2281,7 +2282,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Quinoa","Beyond Meat","Alpro Milk","Rice Milk","Almond Yogurt"],
+        "inventory": ["Quinoa", "Beyond Meat", "Alpro Milk", "Rice Milk", "Almond Yogurt"],
         "id": "gen_gs_44",
         "name": "Magasin Secret",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -2295,7 +2296,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Oatley Barista","Violife Cheese","Alpro Milk","Beyond Meat","Almond Yogurt"],
+        "inventory": ["Oatley Barista", "Violife Cheese", "Alpro Milk", "Beyond Meat", "Almond Yogurt"],
         "id": "gen_gs_45",
         "name": "Green Grocer",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -2309,7 +2310,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 4,
-        "inventory": ["Vegan Cookies","Dark Chocolate","Falafel Mix","Lentils","Oatley Barista"],
+        "inventory": ["Vegan Cookies", "Dark Chocolate", "Falafel Mix", "Lentils", "Oatley Barista"],
         "id": "gen_gs_46",
         "name": "Magasin Secret",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -2323,7 +2324,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Vegan Mayo","Rice Milk","Nutritional Yeast","Vegan Pizza","Vegan Cookies"],
+        "inventory": ["Vegan Mayo", "Rice Milk", "Nutritional Yeast", "Vegan Pizza", "Vegan Cookies"],
         "id": "gen_gs_47",
         "name": "Magasin Modern",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -2337,7 +2338,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Nutritional Yeast","Beyond Meat","Heura Chicken","Tofu Rossy","Falafel Mix"],
+        "inventory": ["Nutritional Yeast", "Beyond Meat", "Heura Chicken", "Tofu Rossy", "Falafel Mix"],
         "id": "gen_gs_48",
         "name": "Urban Farm",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -2351,7 +2352,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Tofu Rossy","Alpro Milk","Tempeh","Dark Chocolate","Falafel Mix"],
+        "inventory": ["Tofu Rossy", "Alpro Milk", "Tempeh", "Dark Chocolate", "Falafel Mix"],
         "id": "gen_gs_49",
         "name": "Daily Bio",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -2365,7 +2366,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Almond Yogurt","Hummus","Quinoa","Oatley Barista","Nutritional Yeast"],
+        "inventory": ["Almond Yogurt", "Hummus", "Quinoa", "Oatley Barista", "Nutritional Yeast"],
         "id": "gen_gs_50",
         "name": "Magasin Wild",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -2379,7 +2380,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Heura Chicken","Beyond Meat","Vegan Pizza","Falafel Mix","Rice Milk"],
+        "inventory": ["Heura Chicken", "Beyond Meat", "Vegan Pizza", "Falafel Mix", "Rice Milk"],
         "id": "gen_gs_51",
         "name": "Vegan Mart",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -2393,7 +2394,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 6,
-        "inventory": ["Violife Cheese","Rice Milk","Seitan steak","Quinoa","Tempeh"],
+        "inventory": ["Violife Cheese", "Rice Milk", "Seitan steak", "Quinoa", "Tempeh"],
         "id": "gen_gs_52",
         "name": "Green Grocer",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -2407,7 +2408,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 10,
-        "inventory": ["Seitan steak","Heura Chicken","Lentils","Hummus","Vegan Cookies"],
+        "inventory": ["Seitan steak", "Heura Chicken", "Lentils", "Hummus", "Vegan Cookies"],
         "id": "gen_gs_53",
         "name": "Magasin Sustainable",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
@@ -2421,7 +2422,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Oatley Barista","Beyond Meat","Alpro Milk","Tofu Rossy","Violife Cheese"],
+        "inventory": ["Oatley Barista", "Beyond Meat", "Alpro Milk", "Tofu Rossy", "Violife Cheese"],
         "id": "gen_gs_54",
         "name": "Magasin Wild",
         "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=400",
@@ -2435,7 +2436,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Dark Chocolate","Quinoa","Vegan Cookies","Seitan steak","Lentils"],
+        "inventory": ["Dark Chocolate", "Quinoa", "Vegan Cookies", "Seitan steak", "Lentils"],
         "id": "gen_gs_55",
         "name": "Magasin Sustainable",
         "image": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&q=80&w=400",
@@ -2449,7 +2450,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 7,
-        "inventory": ["Violife Cheese","Tempeh","Heura Chicken","Almond Yogurt","Nutritional Yeast"],
+        "inventory": ["Violife Cheese", "Tempeh", "Heura Chicken", "Almond Yogurt", "Nutritional Yeast"],
         "id": "gen_gs_56",
         "name": "Green Grocer",
         "image": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&q=80&w=400",
@@ -2463,7 +2464,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 8,
-        "inventory": ["Heura Chicken","Alpro Milk","Vegan Mayo","Lentils","Seitan steak"],
+        "inventory": ["Heura Chicken", "Alpro Milk", "Vegan Mayo", "Lentils", "Seitan steak"],
         "id": "gen_gs_57",
         "name": "Magasin Secret",
         "image": "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=400",
@@ -2477,7 +2478,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 5,
-        "inventory": ["Beyond Meat","Oatley Barista","Vegan Mayo","Falafel Mix","Alpro Milk"],
+        "inventory": ["Beyond Meat", "Oatley Barista", "Vegan Mayo", "Falafel Mix", "Alpro Milk"],
         "id": "gen_gs_58",
         "name": "Bio Market",
         "image": "https://images.unsplash.com/photo-1606213753760-4929858712a4?auto=format&fit=crop&q=80&w=400",
@@ -2491,7 +2492,7 @@ export const GROCERY_STORES: GroceryStore[] = [
     },
     {
         "rewardsCount": 3,
-        "inventory": ["Violife Cheese","Falafel Mix","Alpro Milk","Vegan Pizza","Almond Yogurt"],
+        "inventory": ["Violife Cheese", "Falafel Mix", "Alpro Milk", "Vegan Pizza", "Almond Yogurt"],
         "id": "gen_gs_59",
         "name": "Magasin Cozy",
         "image": "https://images.unsplash.com/photo-1519681393784-d8e5b5a45742?auto=format&fit=crop&q=80&w=400",
