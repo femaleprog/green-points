@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Product } from '@/types';
-import { Package } from 'lucide-react';
+import { Package, Star } from 'lucide-react';
 import { ImageWithFallback } from '@/components/ui/ImageWithFallback';
 
 interface ProductCardProps {
@@ -39,6 +39,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             <div className="p-3">
                 <div className="text-xs text-slate-500 mb-0.5">{product.brand}</div>
                 <h3 className="text-sm font-semibold text-slate-900 leading-tight line-clamp-2 h-10">{product.name}</h3>
+
+                {product.rating && (
+                    <div className="flex items-center gap-1 mt-1">
+                        <Star size={12} className="fill-yellow-400 text-yellow-400" />
+                        <span className="text-xs font-semibold text-slate-700">{product.rating}</span>
+                        <span className="text-[10px] text-slate-400">({product.reviewCount})</span>
+                    </div>
+                )}
 
                 <div className="mt-3 flex items-center justify-between">
                     <span className="text-xs font-bold text-brand-600 bg-brand-50 px-2 py-1 rounded-md">

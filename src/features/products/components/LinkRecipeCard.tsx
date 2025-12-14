@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, ShoppingCart, Leaf } from 'lucide-react';
+import { ExternalLink, ShoppingCart, Leaf, Star } from 'lucide-react';
 import { ImageWithFallback } from '@/components/ui/ImageWithFallback';
 
 export interface AgentResult {
@@ -15,6 +15,8 @@ export interface AgentResult {
             price?: string;
             image?: string;
             store: string;
+            rating?: number;
+            reviewCount?: number;
         }[];
     }[];
 }
@@ -86,7 +88,16 @@ export const LinkRecipeCard = ({ result }: LinkRecipeCardProps) => {
                                                         {link.name}
                                                     </div>
                                                     {link.price && (
-                                                        <div className="text-brand-600 font-bold text-xs mt-1">{link.price}</div>
+                                                        <div className="flex items-center justify-between mt-1 w-full">
+                                                            <div className="text-brand-600 font-bold text-xs">{link.price}</div>
+                                                            {link.rating && (
+                                                                <div className="flex items-center gap-0.5 text-[10px] text-slate-600 font-medium">
+                                                                    <Star size={10} className="fill-yellow-400 text-yellow-400" />
+                                                                    <span>{link.rating}</span>
+                                                                    <span className="text-slate-400 font-normal">({link.reviewCount})</span>
+                                                                </div>
+                                                            )}
+                                                        </div>
                                                     )}
                                                 </div>
 

@@ -13,14 +13,34 @@ export const loadDb = () => {
             PRODUCT_DB = lines
                 .filter(l => l.trim())
                 .map(line => {
-                    const match = line.match(/^"(.*?)","(.*?)",(.*),(.*),(.*)$/);
+                    // Pandas CSV format: Name(maybe quoted),"Price",Store,URL,Image,Rating,ReviewCount
+                    // Regex assumes Price is always quoted (e.g. "12,99 €")
+                    const match = line.match(/^(.*),"([^"]+)",([^,]*),([^,]*),([^,]*),([^,]*),([^,]*)$/);
                     if (match) {
+                        let name = match[1].replace(/^"|"$/g, ''); // Remove potential quotes from name
+                        let url = match[4];
+                        if (url.startsWith('https://www.carrefour.frhttps://www.carrefour.fr')) {
+                            url = url.replace('https://www.carrefour.frhttps://www.carrefour.fr', 'https://www.carrefour.fr');
+                        }
+
+                        let image = match[5];
+                        if (image.includes('Carrefour_files') || image.startsWith('./')) {
+                            const filename = image.split('/').pop();
+                            if (filename) image = `https://media.carrefour.fr/medias/${filename}`;
+                        }
+
+                        // Read Ratings from CSV
+                        const rating = parseFloat(match[6]);
+                        const reviewCount = parseInt(match[7]);
+
                         return {
-                            name: match[1],
+                            name,
                             price: match[2],
                             store: match[3],
-                            url: match[4],
-                            image: match[5]
+                            url,
+                            image,
+                            rating: isNaN(rating) ? 0 : rating,
+                            reviewCount: isNaN(reviewCount) ? 0 : reviewCount
                         };
                     }
                     return null;
@@ -51,12 +71,17 @@ export const searchLocalDb = (query: string): Product[] => {
             return { product: p, score };
         })
         .filter(match => match.score > 0)
-        .sort((a, b) => b.score - a.score)
+        .sort((a, b) => {
+            // Text match score first
+            if (b.score !== a.score) return b.score - a.score;
+            // Then by Rating (High to Low)
+            return (b.product.rating || 0) - (a.product.rating || 0);
+        })
         .map(match => match.product);
 };
 
 export const getFeaturedProducts = (limit: number = 5): Product[] => {
-    // Shuffle and pick
-    const shuffled = [...PRODUCT_DB].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, limit);
+    // Sort by rating (High to Low)
+    const sorted = [...PRODUCT_DB].sort((a, b) => (b.rating || 0) - (a.rating || 0));
+    return sorted.slice(0, limit);
 };

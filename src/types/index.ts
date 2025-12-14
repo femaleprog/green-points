@@ -46,6 +46,8 @@ export interface Product {
     category?: string;
     price?: number;
     url?: string;
+    rating?: number;
+    reviewCount?: number;
 }
 
 export interface CompanySpotlight {

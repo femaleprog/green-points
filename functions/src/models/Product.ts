@@ -4,4 +4,6 @@ export interface Product {
     store: string;
     url: string;
     image: string;
+    rating?: number;
+    reviewCount?: number;
 }
