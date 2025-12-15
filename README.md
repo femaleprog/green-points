@@ -1,85 +1,85 @@
-# 🌿 VeganPoints
+# 🌿 Green Switch
 
-**VeganPoints** est une application web mobile-first progressive (PWA) qui récompense les utilisateurs pour leurs achats de produits végétaux. En connectant leurs comptes de fidélité (Auchan, Carrefour, etc.), les utilisateurs cumulent automatiquement des points ("VP") pour chaque article vegan acheté, qu'ils peuvent échanger contre des bons d'achat ou des dons à des causes environnementales.
+**Green Switch** is a mobile-first progressive web application (PWA) that rewards users for purchasing plant-based products. By connecting their loyalty accounts (Auchan, Carrefour, etc.), users automatically earn points ("GS") for every vegan item purchased, which can be redeemed for vouchers or donations to environmental causes.
 
-> 🏆 **Projet Hackathon** : Développé pour encourager la consommation responsable et réduire l'empreinte carbone via la gamification.
+> 🏆 **Hackathon Project**: Developed to encourage responsible consumption and reduce carbon footprint through gamification.
 
-## ✨ Fonctionnalités Clés
+## ✨ Key Features
 
-*   **🔗 Connexion de Comptes** : Liaison simplifiée avec les cartes de fidélité des grandes surfaces (Auchan, Carrefour, etc. - *simulé pour le MVP*).
-*   **🛒 Auto-Tracking Intelligent** : Détection automatique des produits vegans dans l'historique d'achat.
-*   **🎁 Récompenses** : Système de points échangeables contre des avantages réels.
-*   **📍 Carte Interactive** : Localisation des magasins partenaires (via Leaflet).
-*   **💡 Découverte** : Mise en avant de marques et produits éthiques.
-*   **📱 Mobile-First** : Expérience utilisateur optimisée pour smartphone.
+*   **🔗 Account Linking**: Simplified connection with major retailer loyalty cards (Auchan, Carrefour, etc. - *simulated for MVP*).
+*   **🛒 Smart Auto-Tracking**: Automatic detection of vegan products in purchase history.
+*   **🎁 Rewards**: Points system redeemable for real benefits.
+*   **📍 Interactive Map**: Location of partner stores (via Leaflet).
+*   **💡 Discovery**: Spotlight on ethical brands and products.
+*   **📱 Mobile-First**: Optimized user experience for smartphones.
 
-## 🛠 Stack Technique
+## 🛠 Tech Stack
 
-*   **Frontend** : [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-*   **Build Tool** : [Vite](https://vitejs.dev/)
-*   **Global State & Caching** : [TanStack Query](https://tanstack.com/query/latest)
-*   **Style** : [Tailwind CSS](https://tailwindcss.com/) + [Framer Motion](https://www.framer.com/motion/) (micro-animations)
-*   **Routing** : React Router DOM
-*   **Backend & Auth** : Google Firebase (Authentication, Firestore, Cloud Functions)
-*   **Cartographie** : Leaflet / React-Leaflet
+*   **Frontend**: [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+*   **Build Tool**: [Vite](https://vitejs.dev/)
+*   **Global State & Caching**: [TanStack Query](https://tanstack.com/query/latest)
+*   **Style**: [Tailwind CSS](https://tailwindcss.com/) + [Framer Motion](https://www.framer.com/motion/) (micro-animations)
+*   **Routing**: React Router DOM
+*   **Backend & Auth**: Google Firebase (Authentication, Firestore, Cloud Functions)
+*   **Mapping**: Leaflet / React-Leaflet
 
-## 🚀 Installation & Démarrage
+## 🚀 Installation & Getting Started
 
-### Prérequis
-*   Node.js (v18+ recommandé)
+### Prerequisites
+*   Node.js (v18+ recommended)
 *   npm
 
-### 1. Cloner le projet
+### 1. Clone the project
 ```bash
 git clone https://github.com/femaleprog/green-points.git
 cd green-points
 ```
 
-### 2. Installer les dépendances
+### 2. Install dependencies
 ```bash
 npm install
 ```
 
-### 3. Lancer le serveur de développement
+### 3. Start development server
 ```bash
 npm run dev
 ```
-L'application sera accessible sur [http://localhost:5173](http://localhost:5173).
-*Astuce : Utilisez la vue mobile de votre navigateur (F12 > Device Toolbar) pour une meilleure expérience.*
+The application will be accessible at [http://localhost:5173](http://localhost:5173).
+*Tip: Use your browser's mobile view (F12 > Device Toolbar) for the best experience.*
 
-### 4. Build pour la production
+### 4. Build for production
 ```bash
 npm run build
 npm run preview
 ```
 
-## 📂 Structure du Projet
+## 📂 Project Structure
 
 ```bash
 src/
-├── components/    # Composants UI réutilisables (Header, ProductCard, etc.)
-├── features/      # Fonctionnalités métier isolées
-├── data/          # Données statiques / mock (Produits, Entreprises)
+├── components/    # Reusable UI components (Header, ProductCard, etc.)
+├── features/      # Isolated business features
+├── data/          # Static / mock data (Products, Companies)
 ├── hooks/         # Custom React Hooks
-├── lib/           # Utilitaires et config (Firebase, etc.)
-├── mockAdapters/  # Simulation des APIs magasins
-├── pages/         # Vues principales (Dashboard, LinkAccount, Rewards)
-└── App.tsx        # Point d'entrée et Routing
+├── lib/           # Utilities and config (Firebase, etc.)
+├── mockAdapters/  # Store API Simulation
+├── pages/         # Main views (Dashboard, LinkAccount, Rewards)
+└── App.tsx        # Entry point and Routing
 functions/         # Cloud Functions Firebase (Backend Logic)
 ```
 
 ## 🧪 Tests
-Le projet utilise `vitest` pour les tests unitaires.
+The project uses `vitest` for unit testing.
 ```bash
 npx vitest
 ```
 
-## 📝 Notes pour le Jury / Démo
-Pour tester le flux complet sans compte magasin réel :
-1.  Allez dans l'onglet **"Link"**.
-2.  Cliquez sur **"Connect"** pour Auchan ou Carrefour (délai simulé).
-3.  Une fois connecté, cliquez sur **"Sync"**.
-4.  Le système utilisera les `mockAdapters` pour simuler des achats récents et créditer votre cagnotte.
+## 📝 Notes for Jury / Demo
+To test the complete flow without a real store account:
+1.  Go to the **"Link"** tab.
+2.  Click **"Connect"** for Auchan or Carrefour (simulated delay).
+3.  Once connected, click **"Sync"**.
+4.  The system will use `mockAdapters` to simulate recent purchases and credit your wallet.
 
 ---
-*Fait avec 💚 pour la planète.*
+*Made with 💚 for the planet.*
