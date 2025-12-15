@@ -1,6 +1,6 @@
 # 🌿 Green Switch
 
-**Green Switch** is a mobile-first progressive web application (PWA) that rewards users for purchasing plant-based products. By connecting their loyalty accounts (Auchan, Carrefour, etc.), users automatically earn points ("GS") for every vegan item purchased, which can be redeemed for vouchers or donations to environmental causes. Reached 4th place in the hackathon (over 23 projects).
+**Green Switch** is a mobile-first progressive web application (PWA) that rewards users for purchasing plant-based products. By connecting their loyalty accounts (Auchan, Carrefour, etc.), users automatically earn points ("GS") for every vegan item purchased, which can be redeemed for vouchers or donations to environmental causes. Reached 4th place in [HackTheFork](https://www.hackthefork.com/) hackathon (over 23 projects) the 13-14 December 2025.
 
 > 🏆 **Hackathon Project**: Developed to encourage responsible consumption and reduce carbon footprint through gamification.
 
