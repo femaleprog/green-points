@@ -1,106 +1,85 @@
-# VeganPoints (MVP)
+# 🌿 VeganPoints
 
-VeganPoints is a mobile-first web application that rewards users for purchasing vegan products. By linking store accounts (Auchan, Carrefour, etc.), users automatically earn points ("VP") for every vegan item bought.
+**VeganPoints** est une application web mobile-first progressive (PWA) qui récompense les utilisateurs pour leurs achats de produits végétaux. En connectant leurs comptes de fidélité (Auchan, Carrefour, etc.), les utilisateurs cumulent automatiquement des points ("VP") pour chaque article vegan acheté, qu'ils peuvent échanger contre des bons d'achat ou des dons à des causes environnementales.
 
-## ✨ Features
-- **Link Accounts**: Connect store loyalty accounts (Mocked for MVP).
-- **Auto-Tracking**: Automatically detects vegan purchases and awards points.
-- **Rewards**: Redeem points for vouchers and environmental causes.
-- **Spotlight**: Discover new vegan brands and products of the week.
+> 🏆 **Projet Hackathon** : Développé pour encourager la consommation responsable et réduire l'empreinte carbone via la gamification.
 
-## 🛠 Tech Stack
-- **Frontend**: React, TypeScript, Vite
-- **Styling**: Tailwind CSS, Framer Motion (micro-animations)
-- **State**: TanStack Query (React Query)
-- **Routing**: React Router
-- **Backend (Stub)**: Google Firebase (Auth, Firestore, Cloud Functions)
+## ✨ Fonctionnalités Clés
 
-## 📁 File Structure
+*   **🔗 Connexion de Comptes** : Liaison simplifiée avec les cartes de fidélité des grandes surfaces (Auchan, Carrefour, etc. - *simulé pour le MVP*).
+*   **🛒 Auto-Tracking Intelligent** : Détection automatique des produits vegans dans l'historique d'achat.
+*   **🎁 Récompenses** : Système de points échangeables contre des avantages réels.
+*   **📍 Carte Interactive** : Localisation des magasins partenaires (via Leaflet).
+*   **💡 Découverte** : Mise en avant de marques et produits éthiques.
+*   **📱 Mobile-First** : Expérience utilisateur optimisée pour smartphone.
+
+## 🛠 Stack Technique
+
+*   **Frontend** : [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+*   **Build Tool** : [Vite](https://vitejs.dev/)
+*   **Global State & Caching** : [TanStack Query](https://tanstack.com/query/latest)
+*   **Style** : [Tailwind CSS](https://tailwindcss.com/) + [Framer Motion](https://www.framer.com/motion/) (micro-animations)
+*   **Routing** : React Router DOM
+*   **Backend & Auth** : Google Firebase (Authentication, Firestore, Cloud Functions)
+*   **Cartographie** : Leaflet / React-Leaflet
+
+## 🚀 Installation & Démarrage
+
+### Prérequis
+*   Node.js (v18+ recommandé)
+*   npm
+
+### 1. Cloner le projet
+```bash
+git clone https://github.com/femaleprog/green-points.git
+cd green-points
 ```
-src/
-├── components/    # Reusable UI components (Header, ProductCard, etc.)
-├── data/          # Mock data (Seed for products, companies)
-├── hooks/         # Custom React hooks (useUser, store logic)
-├── lib/           # Utilities, standard types, firebase config
-├── mockAdapters/  # Logic to simulate store APIs
-├── pages/         # Main views (Dashboard, LinkAccount, Rewards)
-└── App.tsx        # Main layout and routing
-functions/         # Cloud Functions (Backend Logic)
-```
 
-## 🚀 Getting Started
-
-### 1. Install Dependencies
+### 2. Installer les dépendances
 ```bash
 npm install
 ```
 
-### 2. Run Development Server
+### 3. Lancer le serveur de développement
 ```bash
 npm run dev
 ```
-Open [http://localhost:5173](http://localhost:5173) in your browser. 
-**Tip:** Use Chrome DevTools "Device Toolbar" to view in Mobile mode (e.g., iPhone SE/12/14) for the best experience.
+L'application sera accessible sur [http://localhost:5173](http://localhost:5173).
+*Astuce : Utilisez la vue mobile de votre navigateur (F12 > Device Toolbar) pour une meilleure expérience.*
 
-### 3. Run Tests
+### 4. Build pour la production
+```bash
+npm run build
+npm run preview
+```
+
+## 📂 Structure du Projet
+
+```bash
+src/
+├── components/    # Composants UI réutilisables (Header, ProductCard, etc.)
+├── features/      # Fonctionnalités métier isolées
+├── data/          # Données statiques / mock (Produits, Entreprises)
+├── hooks/         # Custom React Hooks
+├── lib/           # Utilitaires et config (Firebase, etc.)
+├── mockAdapters/  # Simulation des APIs magasins
+├── pages/         # Vues principales (Dashboard, LinkAccount, Rewards)
+└── App.tsx        # Point d'entrée et Routing
+functions/         # Cloud Functions Firebase (Backend Logic)
+```
+
+## 🧪 Tests
+Le projet utilise `vitest` pour les tests unitaires.
 ```bash
 npx vitest
 ```
 
-## 🧪 Mock Adapters & Testing
-- Go to the **"Link"** tab.
-- Click **"Connect"** on Auchan or Carrefour (simulated delay).
-- Once connected, click **"Sync"**.
-- This calls `src/mockAdapters/{store}.ts`, finds mock purchases (defined in code), and credits points to your local wallet.
-
-## 🎨 UI Style Guide
-- **Primary Color**: Green-600 (`#16a34a`)
-- **Secondary**: Slate-900 (Text), Slate-50 (Backgrounds)
-- **Typography**: Inter (Google Fonts)
-- **Radius**: `rounded-2xl` (1rem) for cards, `rounded-xl` (0.75rem) for buttons.
-- **Spacing**: standard Tailwind spacing (4, 6, 8).
-
-## ☁️ Firebase & Backend Setup
-For the real backend:
-1. Create a project at [console.firebase.google.com](https://console.firebase.google.com).
-2. Enable **Firestore** and **Authentication**.
-3. Copy config keys to `.env.local` (see example below).
-
-```env
-VITE_FIREBASE_API_KEY=...
-VITE_FIREBASE_AUTH_DOMAIN=...
-VITE_FIREBASE_PROJECT_ID=...
-```
-
-4. Deploy Cloud Functions:
-```bash
-cd functions
-npm install
-npm run deploy
-```
-
-## ♿ Accessibility Notes
-- Contrast ratios are maintained using Slate-500+ for text on white backgrounds.
-- Touch targets on mobile are min 44px height where possible.
-- Inputs and Buttons have visible focus states.
+## 📝 Notes pour le Jury / Démo
+Pour tester le flux complet sans compte magasin réel :
+1.  Allez dans l'onglet **"Link"**.
+2.  Cliquez sur **"Connect"** pour Auchan ou Carrefour (délai simulé).
+3.  Une fois connecté, cliquez sur **"Sync"**.
+4.  Le système utilisera les `mockAdapters` pour simuler des achats récents et créditer votre cagnotte.
 
 ---
-
-## 🔌 EXTENSIONS (Moving beyond MVP)
-
-1. **Real Store APIs**:
-   - Replace `src/mockAdapters/*.ts` with real HTTP calls to store APIs (e.g. using a service like Plaid for Receipt data if available, or official retailer APIs).
-   - Requires OAuth flows. Implement `pages/Callback.tsx` to handle OAuth redirects.
-
-2. **Receipt Scanning (OCR)**:
-   - Add a "Scan Receipt" feature using Tesseract.js or Google Cloud Vision API for stores without digital API.
-
-3. **Barcode Scanner**:
-   - Add a barcode scanner (via `react-qr-barcode-scanner`) to check if a product is vegan in-store.
-
-4. **Multi-Region**:
-   - Update `AVAILABLE_STORES` to load based on User's locale.
-
-5. **Cloud Function Security**:
-   - Determine `isVegan` status on the SERVER, not trusting the client. The current mock adapter runs on client.
-   - Move `syncPurchases` logic entirely to a Cloud Function `https.onCall`.
+*Fait avec 💚 pour la planète.*
